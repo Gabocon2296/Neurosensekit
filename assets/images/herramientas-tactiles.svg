@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250">
+  <defs>
+    <linearGradient id="herr1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="herr2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#15803d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="herr3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fb923c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Rodillo de masaje -->
+  <g>
+    <rect x="30" y="80" width="60" height="35" rx="17" fill="url(#herr1)"/>
+    <circle cx="40" cy="97" r="4" fill="white" opacity="0.5"/>
+    <circle cx="50" cy="85" r="3" fill="white" opacity="0.4"/>
+    <circle cx="60" cy="98" r="4" fill="white" opacity="0.5"/>
+    <circle cx="70" cy="88" r="3" fill="white" opacity="0.4"/>
+    <circle cx="80" cy="100" r="4" fill="white" opacity="0.5"/>
+    <text x="65" y="180" font-size="14" fill="#1d4ed8" font-weight="bold">Rodillo</text>
+  </g>
+  
+  <!-- Bola sensorial con picos -->
+  <g>
+    <circle cx="200" cy="97" r="20" fill="url(#herr2)"/>
+    <!-- Picos -->
+    <circle cx="200" cy="72" r="3" fill="#15803d"/>
+    <circle cx="200" cy="122" r="3" fill="#15803d"/>
+    <circle cx="175" cy="97" r="3" fill="#15803d"/>
+    <circle cx="225" cy="97" r="3" fill="#15803d"/>
+    <circle cx="183" cy="78" r="3" fill="#15803d"/>
+    <circle cx="217" cy="78" r="3" fill="#15803d"/>
+    <circle cx="183" cy="116" r="3" fill="#15803d"/>
+    <circle cx="217" cy="116" r="3" fill="#15803d"/>
+    <circle cx="200" cy="97" r="5" fill="white" opacity="0.4"/>
+    <text x="175" y="180" font-size="14" fill="#15803d" font-weight="bold">Bola Picos</text>
+  </g>
+  
+  <!-- Cepillo de texturas -->
+  <g>
+    <rect x="340" y="90" width="30" height="20" rx="3" fill="url(#herr3)"/>
+    <!-- Cerdas -->
+    <rect x="343" y="110" width="2" height="12" fill="#ea580c"/>
+    <rect x="350" y="110" width="2" height="12" fill="#ea580c"/>
+    <rect x="357" y="110" width="2" height="12" fill="#ea580c"/>
+    <rect x="364" y="110" width="2" height="12" fill="#ea580c"/>
+    <text x="330" y="180" font-size="14" fill="#ea580c" font-weight="bold">Cepillo</text>
+  </g>
+  
+  <!-- Sombras -->
+  <ellipse cx="65" cy="240" rx="45" ry="8" fill="black" opacity="0.1"/>
+  <ellipse cx="200" cy="240" rx="35" ry="8" fill="black" opacity="0.1"/>
+  <ellipse cx="355" cy="240" rx="40" ry="8" fill="black" opacity="0.1"/>
+</svg>

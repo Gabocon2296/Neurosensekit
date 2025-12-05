@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150">
+  <defs>
+    <linearGradient id="bandaRoja" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bandaAmarilla" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#eab308;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ca8a04;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bandaVerde" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#15803d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bandaAzul" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Banda 1 - Roja -->
+  <rect x="20" y="30" width="70" height="15" rx="7" fill="url(#bandaRoja)" transform="rotate(-25 55 37)"/>
+  
+  <!-- Banda 2 - Amarilla -->
+  <rect x="110" y="50" width="70" height="15" rx="7" fill="url(#bandaAmarilla)" transform="rotate(-10 145 57)"/>
+  
+  <!-- Banda 3 - Verde -->
+  <rect x="200" y="60" width="70" height="15" rx="7" fill="url(#bandaVerde)" transform="rotate(10 235 67)"/>
+  
+  <!-- Banda 4 - Azul -->
+  <rect x="290" y="70" width="70" height="15" rx="7" fill="url(#bandaAzul)" transform="rotate(25 325 77)"/>
+  
+  <!-- Sombras -->
+  <ellipse cx="55" cy="120" rx="40" ry="8" fill="black" opacity="0.1"/>
+  <ellipse cx="145" cy="120" rx="40" ry="8" fill="black" opacity="0.1"/>
+  <ellipse cx="235" cy="120" rx="40" ry="8" fill="black" opacity="0.1"/>
+  <ellipse cx="325" cy="120" rx="40" ry="8" fill="black" opacity="0.1"/>
+</svg>

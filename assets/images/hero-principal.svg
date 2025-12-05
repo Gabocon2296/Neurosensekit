@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="bgHero" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dbeafe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0f2fe;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect width="600" height="400" fill="url(#bgHero)"/>
+  
+  <!-- Persona (figura simplificada) -->
+  <g>
+    <!-- Cabeza -->
+    <circle cx="200" cy="80" r="25" fill="#d4a574"/>
+    <!-- Sonrisa -->
+    <path d="M 190 85 Q 200 92 210 85" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Ojos -->
+    <circle cx="193" cy="80" r="2" fill="#333"/>
+    <circle cx="207" cy="80" r="2" fill="#333"/>
+    
+    <!-- Cuerpo -->
+    <rect x="175" y="110" width="50" height="80" rx="10" fill="#60a5fa"/>
+    
+    <!-- Brazo derecho extendido -->
+    <g>
+      <line x1="225" y1="130" x2="320" y2="100" stroke="#d4a574" stroke-width="12" stroke-linecap="round"/>
+      <!-- Mano -->
+      <circle cx="320" cy="100" r="15" fill="#d4a574"/>
+    </g>
+    
+    <!-- Brazo izquierdo -->
+    <line x1="175" y1="130" x2="120" y2="150" stroke="#d4a574" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="120" cy="150" r="12" fill="#d4a574"/>
+    
+    <!-- Piernas -->
+    <line x1="190" y1="190" x2="180" y2="280" stroke="#4b5563" stroke-width="14" stroke-linecap="round"/>
+    <line x1="210" y1="190" x2="220" y2="280" stroke="#4b5563" stroke-width="14" stroke-linecap="round"/>
+    
+    <!-- Pies -->
+    <rect x="170" y="280" width="20" height="12" rx="6" fill="#4b5563"/>
+    <rect x="210" y="280" width="20" height="12" rx="6" fill="#4b5563"/>
+  </g>
+  
+  <!-- Pelotas en la mano -->
+  <circle cx="330" cy="90" r="12" fill="#a855f7"/>
+  <circle cx="315" cy="75" r="14" fill="#fb923c"/>
+  <circle cx="340" cy="75" r="13" fill="#fbbf24"/>
+  
+  <!-- Caja terapéutica -->
+  <g>
+    <!-- Caja -->
+    <rect x="380" y="120" width="90" height="100" rx="5" fill="#a0826d"/>
+    <!-- Interior -->
+    <rect x="385" y="130" width="80" height="40" rx="3" fill="#3b82f6"/>
+    <!-- Pantalla -->
+    <rect x="395" y="140" width="60" height="25" rx="2" fill="#1e3a8a"/>
+    <!-- Texto en pantalla -->
+    <text x="425" y="153" font-size="10" fill="#fbbf24" text-anchor="middle" font-weight="bold">NS Kit</text>
+    <!-- Símbolo cerebro -->
+    <circle cx="425" cy="130" r="3" fill="#fbbf24"/>
+  </g>
+  
+  <!-- Elementos en el suelo -->
+  <!-- Bandas elásticas -->
+  <rect x="100" y="300" width="50" height="8" rx="4" fill="#ef4444" transform="rotate(-20 125 304)"/>
+  <rect x="140" y="310" width="50" height="8" rx="4" fill="#22c55e" transform="rotate(15 165 314)"/>
+  
+  <!-- Conos -->
+  <polygon points="250,330 260,340 240,340" fill="#fbbf24"/>
+  <polygon points="280,340 290,350 270,350" fill="#fb923c"/>
+  
+  <!-- Luz ambiental -->
+  <circle cx="500" cy="50" r="150" fill="white" opacity="0.3"/>
+</svg>

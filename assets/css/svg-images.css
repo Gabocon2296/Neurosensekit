@@ -1,0 +1,87 @@
+/* ============================================
+   ESTILOS PARA IMÁGENES SVG
+   ============================================ */
+
+/* Imágenes SVG responsivas */
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Imagen del hero principal */
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Imágenes en tarjetas de incluye */
+.includes-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Avatares en testimonios */
+.avatar-testimonio {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Animación para SVGs al cargar */
+@keyframes svgFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+svg {
+    animation: svgFadeIn 0.5s ease-in-out;
+}
+
+/* Hover effects en imágenes SVG */
+.includes-image:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+/* Estilos específicos por tipo de imagen */
+.pelotas-svg circle {
+    transition: all 0.3s ease;
+}
+
+.pelotas-svg:hover circle {
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+}
+
+.bandas-svg rect {
+    transition: all 0.3s ease;
+}
+
+.bandas-svg:hover rect {
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+}
+
+/* Media queries para SVGs en móvil */
+@media (max-width: 768px) {
+    svg {
+        width: 100%;
+        height: auto;
+    }
+    
+    .includes-image {
+        width: 70px;
+        height: 70px;
+    }
+}

@@ -1,1 +1,302 @@
-body { scroll-behavior: smooth; }
+/* Botones de redes sociales sin movimiento */
+a[href="#"] {
+    text-decoration: none;
+}
+
+.flex.gap-4 a {
+    transition: background-color 0.3s ease;
+}
+
+.flex.gap-4 a i {
+    transition: none;
+    transform: none !important;
+}
+
+:root {
+    --primary-blue: #1e3a8a;
+    --secondary-blue: #3b82f6;
+    --accent-yellow: #fbbf24;
+    --accent-dark: #111827;
+    --text-gray: #4b5563;
+    --light-bg: #f3f4f6;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+body { 
+    scroll-behavior: smooth;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animaciones personalizadas */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse-shadow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(251, 191, 36, 0.5);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(251, 191, 36, 0.3), 0 0 20px rgba(59, 130, 246, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(251, 191, 36, 0.5), 0 0 40px rgba(59, 130, 246, 0.2);
+    }
+}
+/* Botones mejorados */
+a[href*="#personaliza"],
+a[href*="#incluye"],
+a[href*="#caracteristicas"] {
+    position: relative;
+    overflow: hidden;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+a[href*="#personaliza"]::before,
+a[href*="#incluye"]::before,
+a[href*="#caracteristicas"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+a[href*="#personaliza"]:hover::before,
+a[href*="#incluye"]:hover::before,
+a[href*="#caracteristicas"]:hover::before {
+    left: 100%;
+}
+
+/* Efectos en tarjetas */
+.rounded-xl {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.rounded-xl:hover {
+    transform: translateY(-8px);
+}
+
+/* Estilos de texto */
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.5px;
+    font-weight: 700;
+}
+
+/* Sombras personalizadas mejoradas */
+.shadow-lg {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.shadow-2xl {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Efectos en enlaces */
+a {
+    position: relative;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Animación de entrada */
+.animate__fadeInLeft,
+.animate__fadeInRight,
+.animate__fadeInUp {
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+}
+
+/* Efecto de brillo en elementos CTA */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.bg-gradient-to-r {
+    transition: all 0.3s ease;
+}
+
+.bg-gradient-to-r:hover {
+    filter: brightness(1.1);
+}
+
+/* Mejora de contraste de texto */
+.text-gray-900 {
+    color: #111827;
+}
+
+.text-gray-600 {
+    color: #4b5563;
+}
+
+.text-gray-700 {
+    color: #374151;
+}
+
+.text-gray-400 {
+    color: #9ca3af;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2.25rem;
+    }
+    
+    h3 {
+        font-size: 1.875rem;
+    }
+    
+    section {
+        padding: 3rem 0;
+    }
+    
+    .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Estilos para el header sticky */
+header {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradientes personalizados */
+.bg-gradient-blue {
+    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+}
+
+.bg-gradient-yellow {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+}
+
+/* Efecto de enfoque en inputs */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Estilos de transición suave */
+* {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+}
+
+button:active,
+a:active {
+    transform: scale(0.98);
+}
+
+/* Estilos para enlaces de navegación */
+nav a {
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Estilos de tarjetas con bordes coloreados */
+.border-yellow-200 {
+    border-color: rgba(251, 191, 36, 0.3);
+}
+
+.border-blue-200 {
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.border-purple-200 {
+    border-color: rgba(168, 85, 247, 0.3);
+}
+
+.border-green-200 {
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+.border-red-200 {
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Estilos para secciones */
+section {
+    position: relative;
+}
+
+/* Mejora en la legibilidad */
+p {
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+}

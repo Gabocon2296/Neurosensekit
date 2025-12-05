@@ -1,115 +1,400 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NeuroSense Kit</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-<link rel="stylesheet" href="assets/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeuroSense Kit - Rehabilitación Sensorial Personalizada</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/icono.ico"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/svg-images.css" />
 </head>
 <body class="bg-white text-gray-800">
 
-<header class="w-full py-4 shadow-sm bg-white">
-  <div class="container mx-auto flex justify-between items-center px-4">
-    <h1 class="text-2xl font-bold text-blue-700">NeuroSense Kit</h1>
-    <nav class="space-x-6 hidden md:block">
-      <a href="#inicio" class="hover:text-blue-600">Inicio</a>
-      <a href="#funciona" class="hover:text-blue-600">¿Cómo funciona?</a>
-      <a href="#personaliza" class="hover:text-blue-600">Personaliza tu Kit</a>
-      <a href="#testimonios" class="hover:text-blue-600">Testimonios</a>
-      <a href="#contacto" class="hover:text-blue-600">Contacto</a>
-    </nav>
-    <a href="#personaliza" class="px-4 py-2 bg-yellow-400 rounded-lg shadow hover:bg-yellow-500">
-      Crear mi Kit
-    </a>
-  </div>
+<!-- HEADER -->
+<header class="w-full sticky top-0 z-50 bg-white shadow-sm">
+    <div class="container mx-auto flex justify-between items-center px-4 py-4">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                <i class="fas fa-brain text-white text-lg"></i>
+            </div>
+            <h1 class="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">NeuroSense Kit</h1>
+        </div>
+        <nav class="space-x-8 hidden lg:flex items-center">
+            <a href="#inicio" class="text-gray-700 hover:text-blue-600 transition font-medium">Inicio</a>
+            <a href="#caracteristicas" class="text-gray-700 hover:text-blue-600 transition font-medium">¿Cómo funciona?</a>
+            <a href="#incluye" class="text-gray-700 hover:text-blue-600 transition font-medium">Qué incluye</a>
+            <a href="#testimonios" class="text-gray-700 hover:text-blue-600 transition font-medium">Testimonios</a>
+            <a href="#contacto" class="text-gray-700 hover:text-blue-600 transition font-medium">Contacto</a>
+        </nav>
+        <a href="#personaliza" class="hidden lg:inline-block px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition duration-300">
+            Crear mi Kit
+        </a>
+        <button class="lg:hidden text-gray-700 hover:text-blue-600 transition">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+    </div>
 </header>
 
-<section id="inicio" class="container mx-auto px-4 py-16 flex flex-col md:flex-row gap-10 items-center">
-  <div class="w-full md:w-1/2 animate__animated animate__fadeInLeft">
-    <h2 class="text-4xl font-extrabold text-blue-900 leading-tight">
-      Crea tu Kit Terapéutico Sensorial Personalizado en minutos
-    </h2>
-    <p class="mt-4 text-gray-600">
-      Diseñado para rehabilitación física, sensorial y cognitiva.
-    </p>
-    <a href="#personaliza"
-      class="mt-6 inline-block bg-yellow-400 px-6 py-3 rounded-lg shadow text-lg hover:bg-yellow-500">
-      Comenzar cuestionario
-    </a>
-  </div>
+<section id="inicio" class="container mx-auto px-4 py-24 flex flex-col md:flex-row gap-16 items-center">
+    <div class="w-full md:w-1/2 animate__animated animate__fadeInLeft space-y-8">
+        <div class="space-y-6">
+            <div class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold">
+                <i class="fas fa-star"></i> Rehabilitación Personalizada
+            </div>
+            <h2 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                Crea tu Kit <span class="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Terapéutico</span> Sensorial Personalizado en minutos
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                Diseñado para rehabilitación física, sensorial y cognitiva. Recibe un kit 100% personalizado basado en tu evaluación en tan solo MINUTOS.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                <button onclick="alert('Próximamente disponible. El cuestionario estará activo muy pronto.')" class="px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-lg shadow-lg hover:shadow-xl transition inline-block text-center cursor-not-allowed opacity-75">
+                    <i class="fas fa-check-circle mr-2"></i>Comenzar cuestionario
+                </button>
+                <a href="#caracteristicas" class="px-8 py-4 border-2 border-blue-600 text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition inline-block text-center">
+                    Conocer más
+                </a>
+            </div>
+        </div>
+    </div>
 
-  <div class="w-full md:w-1/2 animate__animated animate__fadeInRight">
-    <img src="assets/images/hero.jpg" class="rounded-xl shadow-lg" />
-  </div>
+    <div class="w-full md:w-1/2 animate__animated animate__fadeInRight">
+        <div class="relative">
+            <div class="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-blue-400 to-blue-600 rounded-3xl blur-2xl opacity-20 animate-pulse"></div>
+            <div class="relative rounded-3xl shadow-2xl overflow-hidden h-96 md:h-full flex items-center justify-center bg-white">
+                <img src="assets/images/hero2.png" alt="Kit Sensorial Premium - NeuroSense Kit" class="w-full h-full object-cover" loading="lazy"/>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section class="bg-gray-100 py-16">
-  <div class="container mx-auto px-4 text-center">
-    <h3 class="text-3xl font-bold text-blue-900 mb-10">¿Qué incluye tu Kit?</h3>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-3xl mx-auto">
-      <p>• Pelotas sensoriales</p>
-      <p>• Bandas elásticas</p>
-      <p>• Herramientas de estimulación táctil</p>
-      <p>• Ejercicios impresos personalizados</p>
-      <p>• Acceso a vídeos guiados</p>
+<!-- CARACTERÍSTICAS PRINCIPALES -->
+<section class="bg-gradient-to-b from-blue-50 to-white py-20 border-b border-gray-200">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            <div class="text-center p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-2">
+                <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <img src="assets/images/1.png" alt="Personalizado" class="w-full h-full object-contain"/>
+                </div>
+                <h4 class="font-bold text-lg text-gray-900 mb-2">Personalizado</h4>
+                <p class="text-sm text-gray-600">Para cada necesidad</p>
+            </div>
+            <div class="text-center p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-2">
+                <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <img src="assets/images/2.png" alt="Material clínico" class="w-full h-full object-contain"/>
+                </div>
+                <h4 class="font-bold text-lg text-gray-900 mb-2">Material clínico</h4>
+                <p class="text-sm text-gray-600">De alta calidad</p>
+            </div>
+            <div class="text-center p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-2">
+                <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <img src="assets/images/3.png" alt="Envíos a todo México" class="w-full h-full object-contain"/>
+                </div>
+                <h4 class="font-bold text-lg text-gray-900 mb-2">Envíos a todo</h4>
+                <p class="text-sm text-gray-600">México</p>
+            </div>
+            <div class="text-center p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-2">
+                <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <img src="assets/images/DOLARSIGN.png" alt="Precio especial" class="w-full h-full object-contain"/>
+                </div>
+                <h4 class="font-bold text-lg text-gray-900 mb-2">A solo</h4>
+                <p class="text-sm text-gray-600">$800 MXN</p>
+            </div>
+        </div>
     </div>
-
-    <a href="#personaliza"
-      class="mt-10 inline-block bg-yellow-400 px-8 py-4 rounded-lg shadow text-lg hover:bg-yellow-500">
-      Quiero mi kit por $800
-    </a>
-  </div>
 </section>
 
-<section id="funciona" class="container mx-auto px-4 py-16 text-center">
-  <h3 class="text-3xl font-bold text-blue-900 mb-12">Cómo funciona</h3>
+<!-- QUÉ INCLUYE TU KIT -->
+<section id="incluye" class="container mx-auto px-4 py-20">
+    <div class="text-center mb-16">
+        <h3 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4">¿Qué incluye tu Kit?</h3>
+        <p class="text-xl text-gray-600">Todo lo que necesitas para la rehabilitación</p>
+    </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-    <div>
-      <div class="text-5xl font-bold text-yellow-400">1</div>
-      <h4 class="text-xl font-semibold mt-2">Responde el cuestionario</h4>
-      <p class="text-gray-600">(2 minutos)</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+        <div class="flex gap-4 p-6 bg-gradient-to-br from-yellow-50 to-white rounded-xl border-2 border-yellow-200 hover:shadow-lg transition">
+            <div class="w-20 h-20 flex-shrink-0">
+                <img src="assets/images/pelotas-sensoriales.svg" alt="Pelotas sensoriales" class="w-full h-full"/>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg text-gray-900">Pelotas sensoriales</h4>
+                <p class="text-gray-600">Diferentes texturas y densidades</p>
+            </div>
+        </div>
+
+        <div class="flex gap-4 p-6 bg-gradient-to-br from-blue-50 to-white rounded-xl border-2 border-blue-200 hover:shadow-lg transition">
+            <div class="w-20 h-20 flex-shrink-0">
+                <img src="assets/images/bandas-elasticas.svg" alt="Bandas elásticas" class="w-full h-full"/>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg text-gray-900">Bandas elásticas</h4>
+                <p class="text-gray-600">Variados niveles de resistencia</p>
+            </div>
+        </div>
+
+        <div class="flex gap-4 p-6 bg-gradient-to-br from-purple-50 to-white rounded-xl border-2 border-purple-200 hover:shadow-lg transition">
+            <div class="w-20 h-20 flex-shrink-0">
+                <img src="assets/images/herramientas-tactiles.svg" alt="Herramientas táctiles" class="w-full h-full"/>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg text-gray-900">Herramientas táctiles</h4>
+                <p class="text-gray-600">Estimulación de diferentes puntos</p>
+            </div>
+        </div>
+
+        <div class="flex gap-4 p-6 bg-gradient-to-br from-green-50 to-white rounded-xl border-2 border-green-200 hover:shadow-lg transition">
+            <div class="text-3xl">📋</div>
+            <div>
+                <h4 class="font-bold text-lg text-gray-900">Ejercicios personalizados</h4>
+                <p class="text-gray-600">Impresos según tu evaluación</p>
+            </div>
+        </div>
+
+        <div class="flex gap-4 p-6 bg-gradient-to-br from-red-50 to-white rounded-xl border-2 border-red-200 hover:shadow-lg transition md:col-span-2">
+            <div class="text-3xl">🎥</div>
+            <div>
+                <h4 class="font-bold text-lg text-gray-900">Acceso a videos guiados</h4>
+                <p class="text-gray-600">Tutoriales y demostraciones profesionales incluidas</p>
+            </div>
+        </div>
     </div>
-    <div>
-      <div class="text-5xl font-bold text-yellow-400">2</div>
-      <h4 class="text-xl font-semibold mt-2">Analizamos tus respuestas</h4>
-      <p class="text-gray-600">(evaluación experta)</p>
+
+    <div class="text-center pt-4">
+        <button onclick="alert('Próximamente disponible. El cuestionario estará activo muy pronto.')" class="inline-block px-10 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-xl shadow-lg hover:shadow-xl transition text-lg duration-300 cursor-not-allowed opacity-75">
+            <i class="fas fa-shopping-cart mr-2"></i>Quiero mi kit por $800
+        </button>
     </div>
-    <div>
-      <div class="text-5xl font-bold text-yellow-400">3</div>
-      <h4 class="text-xl font-semibold mt-2">Recibe tu kit en casa</h4>
-      <p class="text-gray-600">(100% personalizado)</p>
-    </div>
-  </div>
 </section>
 
-<section id="testimonios" class="container mx-auto px-4 py-16">
-  <h3 class="text-3xl font-bold text-blue-900 text-center mb-10">Testimonios</h3>
+<!-- CÓMO FUNCIONA -->
+<section id="caracteristicas" class="bg-gradient-to-b from-white to-blue-50 py-24">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-20">
+            <h3 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Cómo funciona</h3>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">3 pasos simples para recibir tu kit personalizado</p>
+        </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <div class="p-6 border rounded-lg shadow">
-      <p class="italic text-gray-700">
-        “Me ayudó muchísimo en mi rehabilitación. Muy recomendado.”
-      </p>
-      <h4 class="font-bold mt-4">Ana López</h4>
-    </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+            <!-- Paso 1 -->
+            <div class="relative group">
+                <div class="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition duration-300"></div>
+                <div class="relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300">
+                    <div class="absolute -top-6 left-8 w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center text-4xl font-bold text-white shadow-lg">
+                        1
+                    </div>
+                    <div class="pt-8 space-y-4">
+                        <h4 class="text-2xl font-bold text-gray-900">Responde el cuestionario</h4>
+                        <p class="text-gray-600 font-semibold">⏱️ 2 minutos</p>
+                        <p class="text-gray-500">Contesta preguntas sobre tu condición y necesidades específicas</p>
+                    </div>
+                </div>
+            </div>
 
-    <div class="p-6 border rounded-lg shadow">
-      <p class="italic text-gray-700">
-        “Los ejercicios y materiales son de alta calidad.”
-      </p>
-      <h4 class="font-bold mt-4">María Torres</h4>
+            <!-- Paso 2 -->
+            <div class="relative group md:translate-y-6">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition duration-300"></div>
+                <div class="relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300">
+                    <div class="absolute -top-6 left-8 w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-4xl font-bold text-white shadow-lg">
+                        2
+                    </div>
+                    <div class="pt-8 space-y-4">
+                        <h4 class="text-2xl font-bold text-gray-900">Analizamos tus respuestas</h4>
+                        <p class="text-gray-600 font-semibold">👨‍⚕️ Evaluación experta</p>
+                        <p class="text-gray-500">Nuestros especialistas diseñan tu kit ideal</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paso 3 -->
+            <div class="relative group">
+                <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-purple-600 rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition duration-300"></div>
+                <div class="relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300">
+                    <div class="absolute -top-6 left-8 w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-4xl font-bold text-white shadow-lg">
+                        3
+                    </div>
+                    <div class="pt-8 space-y-4">
+                        <h4 class="text-2xl font-bold text-gray-900">Recibe tu kit en casa</h4>
+                        <p class="text-gray-600 font-semibold">📦 100% personalizado</p>
+                        <p class="text-gray-500">Listo para comenzar tu rehabilitación</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
-<footer id="contacto" class="bg-blue-900 text-white py-10 text-center">
-  <p>© 2025 NeuroSense Kit · Todos los derechos reservados</p>
+<!-- TESTIMONIOS -->
+<section id="testimonios" class="container mx-auto px-4 py-24">
+    <div class="text-center mb-20">
+        <h3 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Testimonios</h3>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">Lo que dicen nuestros clientes satisfechos</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto mb-12">
+        <div class="p-8 bg-gradient-to-br from-blue-50 to-white border-2 border-blue-200 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300">
+            <div class="flex gap-1 mb-6">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+            </div>
+            <p class="italic text-gray-700 mb-6 text-lg leading-relaxed">
+                "Me ayudó muchísimo en mi rehabilitación. Los materiales son de excelente calidad y realmente funciona. No lo puedo creer."
+            </p>
+            <div class="flex items-center gap-4 pt-6 border-t border-blue-100">
+                <img src="assets/images/avatar-testimonios.svg" alt="Avatar" class="w-14 h-14 rounded-full"/>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-lg">Ana López</h4>
+                    <p class="text-sm text-gray-600">✓ Paciente verificado</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-8 bg-gradient-to-br from-purple-50 to-white border-2 border-purple-200 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300">
+            <div class="flex gap-1 mb-6">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+            </div>
+            <p class="italic text-gray-700 mb-6 text-lg leading-relaxed">
+                "El equipo fue muy atento y personalizado. Exactamente lo que necesitaba para mi tratamiento. Altamente recomendado."
+            </p>
+            <div class="flex items-center gap-4 pt-6 border-t border-purple-100">
+                <img src="assets/images/avatar-testimonios.svg" alt="Avatar" class="w-14 h-14 rounded-full"/>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-lg">Carlos Méndez</h4>
+                    <p class="text-sm text-gray-600">✓ Paciente verificado</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-8 bg-gradient-to-br from-green-50 to-white border-2 border-green-200 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300">
+            <div class="flex gap-1 mb-6">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+            </div>
+            <p class="italic text-gray-700 mb-6 text-lg leading-relaxed">
+                "Los videos guiados son de gran ayuda. Mi recuperación ha sido más rápida de lo esperado. Muy satisfecha."
+            </p>
+            <div class="flex items-center gap-4 pt-6 border-t border-green-100">
+                <img src="assets/images/avatar-testimonios.svg" alt="Avatar" class="w-14 h-14 rounded-full"/>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-lg">María González</h4>
+                    <p class="text-sm text-gray-600">✓ Paciente verificado</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-8 bg-gradient-to-br from-orange-50 to-white border-2 border-orange-200 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300">
+            <div class="flex gap-1 mb-6">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+            </div>
+            <p class="italic text-gray-700 mb-6 text-lg leading-relaxed">
+                "Muy recomendado. Excelente atención desde el cuestionario hasta la entrega del kit. Excelente servicio."
+            </p>
+            <div class="flex items-center gap-4 pt-6 border-t border-orange-100">
+                <img src="assets/images/avatar-testimonios.svg" alt="Avatar" class="w-14 h-14 rounded-full"/>
+                <div>
+                    <h4 class="font-bold text-gray-900 text-lg">Pedro Ramírez</h4>
+                    <p class="text-sm text-gray-600">✓ Paciente verificado</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="personaliza" class="relative overflow-hidden py-24 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">
+    <div class="absolute inset-0 opacity-10">
+        <svg class="w-full h-full" viewBox="0 0 1200 400" preserveAspectRatio="none">
+            <path d="M0,200 Q300,100 600,200 T1200,200 L1200,400 L0,400 Z" fill="currentColor"/>
+        </svg>
+    </div>
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <h3 class="text-5xl md:text-6xl font-bold text-white mb-8">¿Listo para tu Kit Personalizado?</h3>
+        <p class="text-xl md:text-2xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+            Crea tu kit en menos de 2 minutos. Evaluación rápida, profesional y completamente personalizada.
+        </p>
+        <a href="#" onclick="alert('Próximamente disponible. El cuestionario estará activo muy pronto.'); return false;" class="inline-block px-12 py-5 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-xl shadow-xl hover:shadow-2xl transition duration-300 text-xl cursor-not-allowed opacity-75">
+            <i class="fas fa-rocket mr-3"></i>Comienza tu cuestionario ahora
+        </a>
+        <p class="text-blue-200 mt-6 text-sm">✓ Gratis • ✓ Rápido • ✓ Sin compromiso</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contacto" class="bg-gradient-to-b from-gray-900 to-gray-950 text-white py-20">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                        <i class="fas fa-brain text-white"></i>
+                    </div>
+                    <h4 class="text-xl font-bold">NeuroSense Kit</h4>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed">Rehabilitación sensorial personalizada para todos. Diseñado por profesionales, para ti.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-5">Enlaces</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="#inicio" class="hover:text-yellow-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-sm"></i>Inicio</a></li>
+                    <li><a href="#caracteristicas" class="hover:text-yellow-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-sm"></i>¿Cómo funciona?</a></li>
+                    <li><a href="#incluye" class="hover:text-yellow-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-sm"></i>Qué incluye</a></li>
+                    <li><a href="#testimonios" class="hover:text-yellow-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-sm"></i>Testimonios</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-5">Contacto</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li><a href="mailto:info@neurosense.mx" class="hover:text-yellow-400 transition flex items-center gap-3"><i class="fas fa-envelope text-base"></i>info@neurosense.mx</a></li>
+                    <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-base"></i>Mazatlán, Sinaloa</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-5">Síguenos</h4>
+                <div class="flex gap-4">
+                    <a href="#" onclick="return false;" class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center hover:from-blue-500 hover:to-blue-600 transition duration-300" style="transform: none;">
+                        <i class="fab fa-facebook-f text-lg" style="transform: none;"></i>
+                    </a>
+                    <a href="#" onclick="return false;" class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center hover:from-blue-300 hover:to-blue-400 transition duration-300" style="transform: none;">
+                        <i class="fab fa-twitter text-lg" style="transform: none;"></i>
+                    </a>
+                    <a href="#" onclick="return false;" class="w-12 h-12 bg-gradient-to-br from-pink-600 to-red-600 rounded-full flex items-center justify-center hover:from-pink-500 hover:to-red-500 transition duration-300" style="transform: none;">
+                        <i class="fab fa-instagram text-lg" style="transform: none;"></i>
+                    </a>
+                    <a href="#" onclick="return false;" class="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center hover:from-red-500 hover:to-red-600 transition duration-300" style="transform: none;">
+                        <i class="fab fa-youtube text-lg" style="transform: none;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 pt-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 text-sm text-gray-400">
+                <div class="flex items-center gap-2"><i class="fas fa-check-circle text-green-400"></i>Garantía de satisfacción</div>
+                <div class="flex items-center gap-2"><i class="fas fa-check-circle text-green-400"></i>Entrega en 3-5 días</div>
+                <div class="flex items-center gap-2"><i class="fas fa-check-circle text-green-400"></i>Atención profesional</div>
+            </div>
+            <div class="text-center text-gray-400 text-sm border-t border-gray-800 pt-6">
+                <p>&copy; 2025 NeuroSense Kit. Todos los derechos reservados.</p>
+                <p class="mt-2">Hecho con <i class="fas fa-heart text-red-500"></i> para tu bienestar</p>
+            </div>
+        </div>
+    </div>
 </footer>
 
 <script src="assets/js/app.js"></script>
