@@ -594,24 +594,32 @@ class Questionnaire {
                     <!-- KIT PRICING Y CTA -->
                     <div class="pricing-section">
                         <div class="pricing-card">
+                            <div class="pricing-badge">✓ RECOMENDADO PROFESIONALMENTE</div>
                             <div class="pricing-content-wrapper">
                                 <div class="pricing-content">
                                     <h3 class="pricing-title">🎁 Tu Kit Personalizado</h3>
-                                    <p class="pricing-desc">Incluye todos los componentes recomendados + acceso a:</p>
+                                    <p class="pricing-desc">Basado en tu evaluación profesional, incluye:</p>
                                     <ul class="pricing-features">
-                                        <li>✓ Videos guiados de ejercicios (30+ videos HD)</li>
-                                        <li>✓ Plan de ejercicios impreso personalizado</li>
-                                        <li>✓ Seguimiento por especialista (primeros 30 días)</li>
-                                        <li>✓ Acceso a app de registro de progreso</li>
-                                        <li>✓ Ajustes gratuitos después de 15 días</li>
+                                        <li><span class="check-icon">✓</span> Todos los componentes recomendados personalizados</li>
+                                        <li><span class="check-icon">✓</span> 30+ videos HD de ejercicios demostrativos</li>
+                                        <li><span class="check-icon">✓</span> Plan de ejercicios impreso y personalizado</li>
+                                        <li><span class="check-icon">✓</span> Seguimiento profesional por 30 días</li>
+                                        <li><span class="check-icon">✓</span> App móvil para registro de progreso</li>
+                                        <li><span class="check-icon">✓</span> Ajustes gratuitos después de 15 días</li>
+                                        <li><span class="check-icon">✓</span> Garantía de satisfacción 100%</li>
                                     </ul>
+                                    <div class="pricing-highlight">
+                                        <p class="highlight-text">Envío incluido a todo México</p>
+                                    </div>
                                     <div class="pricing-amount">
-                                        <span class="price-label">Precio Total:</span>
+                                        <span class="price-label">Precio Final:</span>
                                         <span class="price-value">$800 MXN</span>
+                                        <span class="price-period">(Kit completo + 30 días de seguimiento)</span>
                                     </div>
                                 </div>
                                 <div class="pricing-image">
-                                    <img src="assets/images/hero2.png" alt="Kit NeuroSense" class="kit-hero-image"/>
+                                    <img src="assets/images/hero2.png" alt="Kit NeuroSense Premium" class="kit-hero-image"/>
+                                    <div class="image-badge">Kit Premium</div>
                                 </div>
                             </div>
                         </div>
@@ -748,7 +756,61 @@ class Questionnaire {
 
         if (purchaseBtn) {
             purchaseBtn.onclick = () => {
-                alert('¡Excelente! Tu kit personalizado está listo.\n\nEn breve te contactaremos para confirmar tu pedido y procesar el pago.\n\nTe enviaremos un email con todos los detalles de tu compra y el kit completo.');
+                // Crear un modal profesional en lugar de alert
+                const modal = document.createElement('div');
+                modal.className = 'purchase-modal-overlay';
+                modal.innerHTML = `
+                    <div class="purchase-modal">
+                        <button class="modal-close" onclick="this.closest('.purchase-modal-overlay').remove()">✕</button>
+                        <div class="modal-icon">✓</div>
+                        <h2 class="modal-title">¡Evaluación Completada!</h2>
+                        <p class="modal-subtitle">Tu kit personalizado ha sido generado exitosamente</p>
+                        
+                        <div class="modal-info">
+                            <div class="info-item">
+                                <span class="info-icon">📦</span>
+                                <span class="info-text">Kit 100% personalizado según tus respuestas</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📱</span>
+                                <span class="info-text">Seguimiento especializado por 30 días</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">🎯</span>
+                                <span class="info-text">Garantía de satisfacción</span>
+                            </div>
+                        </div>
+                        
+                        <div class="modal-price">
+                            <p class="price-label">Precio del Kit:</p>
+                            <p class="price-amount">$800 MXN</p>
+                        </div>
+                        
+                        <p class="modal-description">
+                            Nuestro equipo se pondrá en contacto contigo en las próximas 24 horas para:
+                        </p>
+                        <ul class="modal-steps">
+                            <li>Confirmar los detalles de tu pedido</li>
+                            <li>Proporcionar opciones de pago seguras</li>
+                            <li>Coordinar el envío a tu domicilio</li>
+                            <li>Iniciar tu seguimiento personalizado</li>
+                        </ul>
+                        
+                        <div class="modal-actions">
+                            <button class="btn btn-primary" onclick="window.open('https://wa.me/526691163453?text=Hola%20quiero%20confirmar%20mi%20pedido%20del%20kit%20personalizado', '_blank'); this.closest('.purchase-modal-overlay').remove();">
+                                <i class="fas fa-whatsapp"></i> Confirmar por WhatsApp
+                            </button>
+                            <button class="btn btn-secondary" onclick="this.closest('.purchase-modal-overlay').remove();">
+                                Cerrar
+                            </button>
+                        </div>
+                        
+                        <p class="modal-note">
+                            <strong>⚠️ Nota importante:</strong> Recibirás un email en los próximos minutos con un resumen de tu evaluación y los pasos siguientes.
+                        </p>
+                    </div>
+                `;
+                document.body.appendChild(modal);
             };
         }
 
