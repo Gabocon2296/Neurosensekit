@@ -390,34 +390,72 @@ class Questionnaire {
 
     generateRecommendations() {
         const recommendations = [];
-        const symptom = this.answers[3]?.[0];
+        const symptoms = this.answers[3] || [];
         const intensity = this.answers[7];
+        const objective = this.answers[9];
+        const age = this.answers[10];
+        const range = this.answers[4];
 
-        if (symptom === "debilidad_muscular") {
-            recommendations.push("🏋️ Realizar ejercicios de resistencia progresiva con las bandas elásticas");
-            recommendations.push("⏱️ Aumentar gradualmente la intensidad de los ejercicios");
+        // Recomendaciones por síntomas
+        if (symptoms.includes("debilidad_muscular")) {
+            recommendations.push("🏋️ Realizar ejercicios de resistencia progresiva con las bandas elásticas (3-4 series de 10-15 repeticiones)");
+            recommendations.push("⏱️ Aumentar gradualmente la intensidad de los ejercicios cada 1-2 semanas");
+            recommendations.push("💪 Incluir descanso de 48 horas entre sesiones de fortalecimiento");
         }
 
-        if (symptom === "falta_coordinacion") {
-            recommendations.push("🎯 Practicar ejercicios de coordinación mano-ojo");
-            recommendations.push("⚖️ Trabajar equilibrio diariamente");
+        if (symptoms.includes("falta_coordinacion")) {
+            recommendations.push("🎯 Practicar ejercicios de coordinación mano-ojo diariamente (10-15 minutos)");
+            recommendations.push("⚖️ Trabajar equilibrio con la barra de equilibrio 5 veces a la semana");
+            recommendations.push("🧠 Realizar ejercicios de coordinación bilateral");
         }
 
+        if (symptoms.includes("rigidez")) {
+            recommendations.push("🔥 Realizar estiramientos 5-10 minutos antes de cada sesión");
+            recommendations.push("🌡️ Aplicar calor local durante 15-20 minutos antes de iniciar ejercicios");
+            recommendations.push("💆 Combinar terapia manual con ejercicios activos");
+        }
+
+        if (symptoms.includes("falta_equilibrio")) {
+            recommendations.push("⚖️ Practicar ejercicios de equilibrio estático antes de dinámico");
+            recommendations.push("🧍 Aumentar progresivamente la complejidad de los ejercicios");
+            recommendations.push("🛡️ Realizar ejercicios con apoyo seguro para prevenir caídas");
+        }
+
+        // Recomendaciones por frecuencia de ejercicio
         if (intensity === "no_realiza") {
-            recommendations.push("📅 Comenzar con 2-3 sesiones por semana de 20-30 minutos");
-            recommendations.push("📈 Aumentar gradualmente la frecuencia según progreso");
+            recommendations.push("📅 IMPORTANTE: Comenzar con 2-3 sesiones por semana de 20-30 minutos");
+            recommendations.push("📈 Semana 1-2: Adaptación; Semana 3-4: Aumento de intensidad");
+            recommendations.push("🎯 Establecer horarios fijos para generar hábito");
         } else if (intensity === "1_2_veces") {
-            recommendations.push("📅 Incrementar a 3-4 sesiones por semana para mejor progreso");
+            recommendations.push("📅 Incrementar a 3-4 sesiones por semana para lograr resultados óptimos");
+            recommendations.push("⏰ Cada sesión debe durar mínimo 30-45 minutos");
+        } else if (intensity === "3_4_veces") {
+            recommendations.push("✅ Frecuencia adecuada; mantener esta consistencia");
+            recommendations.push("📊 Variar ejercicios cada 2-3 semanas para evitar meseta");
+        } else if (intensity === "5_mas_veces") {
+            recommendations.push("💯 Excelente consistencia; asegurar variedad en rutina");
+            recommendations.push("🔄 Integrar días de recuperación activa (yoga, estiramientos)");
         }
 
-        recommendations.push("🧑‍⚕️ Consultar con un terapeuta para ajustar el programa");
-        recommendations.push("📊 Registrar el progreso semanalmente");
+        // Recomendaciones por objetivo
+        if (objective === "recuperar_funcionalidad") {
+            recommendations.push("🎯 Enfoque en movimientos funcionales específicos a tu condición");
+            recommendations.push("📊 Registrar habilidades alcanzadas cada 2 semanas");
+        } else if (objective === "aumentar_fuerza") {
+            recommendations.push("💪 Usar resistencia progresiva; aumentar 10% cada 2 semanas");
+            recommendations.push("🥗 Asegurar ingesta adecuada de proteínas");
+        } else if (objective === "mejorar_coordinacion") {
+            recommendations.push("🎯 Practicar movimientos coordinados 5 veces por semana");
+            recommendations.push("🧠 Los primeros resultados aparecerán entre 2-4 semanas");
+        }
 
-        return recommendations.length > 0 ? recommendations : [
-            "📅 Mantener una rutina regular de ejercicios",
-            "🧑‍⚕️ Seguir las indicaciones de tu terapeuta",
-            "📊 Monitorear el progreso constantemente"
-        ];
+        // Recomendaciones generales
+        recommendations.push("🧑‍⚕️ Consultar con tu terapeuta para ajustar el programa según progreso");
+        recommendations.push("📱 Descargar nuestra app para registrar ejercicios diarios");
+        recommendations.push("📊 Evaluar progreso cada 30 días con tu especialista");
+        recommendations.push("⚠️ Detener ejercicio inmediatamente si experimentas dolor agudo");
+
+        return recommendations;
     }
 
     generateSummary(types) {
@@ -437,32 +475,71 @@ class Questionnaire {
         let html = `
             <div class="results-container animate__animated animate__fadeIn">
                 <div class="results-header">
-                    <h2 class="results-title">¡Tu Kit Personalizado Está Listo!</h2>
+                    <div class="results-badge">✓ EVALUACIÓN COMPLETADA</div>
+                    <h2 class="results-title">Tu Kit Personalizado</h2>
                     <p class="results-subtitle">${kit.summary}</p>
                 </div>
 
                 <div class="results-content">
-        `;
+                    <!-- TARJETA DE DIAGNÓSTICO GENERAL -->
+                    <div class="diagnosis-section">
+                        <div class="diagnosis-card">
+                            <h3 class="diagnosis-title">📋 Resumen de tu Evaluación</h3>
+                            <div class="diagnosis-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Tipos de Rehabilitación:</span>
+                                    <span class="detail-value">${this.getRehabTypes()}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Áreas a Atender:</span>
+                                    <span class="detail-value">${this.getAffectedAreas()}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Síntomas Principales:</span>
+                                    <span class="detail-value">${this.getPrimarySymptoms()}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Rango de Movimiento:</span>
+                                    <span class="detail-value">${this.getMovementRange()}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        // Componentes del kit
-        html += `
-            <div class="kit-components-section">
-                <h3 class="section-title">📦 Componentes de tu Kit</h3>
-                <div class="components-grid">
+                    <!-- COMPONENTES DEL KIT -->
+                    <div class="kit-components-section">
+                        <h3 class="section-title">📦 Componentes Personalizados</h3>
+                        <div class="components-grid">
         `;
 
         kit.components.forEach(component => {
+            const iconMap = {
+                fisica: "🏋️",
+                sensorial: "👁️",
+                cognitiva: "🧠",
+                motriz: "🤲",
+                auditiva: "👂"
+            };
+            const icon = iconMap[component.type] || "📦";
+            
             html += `
                 <div class="component-card">
-                    <h4 class="component-title">${component.type.replace(/_/g, ' ').toUpperCase()}</h4>
+                    <div class="component-header">
+                        <span class="component-icon">${icon}</span>
+                        <h4 class="component-title">${this.formatLabel(component.type)}</h4>
+                    </div>
                     <div class="component-items">
             `;
 
-            component.items.forEach(item => {
+            component.items.forEach((item, idx) => {
                 html += `
                     <div class="item">
-                        <div class="item-name">✓ ${item.name}</div>
-                        <div class="item-desc">${item.description}</div>
+                        <div class="item-number">${idx + 1}</div>
+                        <div class="item-content">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-desc">${item.description}</div>
+                            <div class="item-qty">Cantidad: ${item.quantity}</div>
+                        </div>
                     </div>
                 `;
             });
@@ -474,67 +551,210 @@ class Questionnaire {
         });
 
         html += `
-                </div>
-            </div>
+                        </div>
+                    </div>
 
-            <div class="recommendations-section">
-                <h3 class="section-title">💡 Recomendaciones Personalizadas</h3>
-                <div class="recommendations-list">
+                    <!-- PLAN DE TRATAMIENTO -->
+                    <div class="treatment-plan-section">
+                        <h3 class="section-title">📅 Plan de Tratamiento Personalizado</h3>
+                        <div class="treatment-grid">
+                            <div class="treatment-card">
+                                <h4 class="treatment-title">⏰ Frecuencia Recomendada</h4>
+                                <p class="treatment-content">${this.getTreatmentFrequency()}</p>
+                            </div>
+                            <div class="treatment-card">
+                                <h4 class="treatment-title">⏱️ Duración de Sesión</h4>
+                                <p class="treatment-content">${this.getSessionDuration()}</p>
+                            </div>
+                            <div class="treatment-card">
+                                <h4 class="treatment-title">📊 Duración del Programa</h4>
+                                <p class="treatment-content">${this.getProgramDuration()}</p>
+                            </div>
+                            <div class="treatment-card">
+                                <h4 class="treatment-title">📈 Objetivo Principal</h4>
+                                <p class="treatment-content">${this.getPrimaryObjective()}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RECOMENDACIONES PROFESIONALES -->
+                    <div class="recommendations-section">
+                        <h3 class="section-title">💡 Recomendaciones Profesionales</h3>
+                        <div class="recommendations-list">
         `;
 
-        kit.recommendations.forEach(rec => {
-            html += `<div class="recommendation-item">${rec}</div>`;
+        kit.recommendations.forEach((rec, idx) => {
+            const priority = idx < 3 ? "high" : "normal";
+            html += `<div class="recommendation-item priority-${priority}"><span class="rec-number">${idx + 1}</span>${rec}</div>`;
         });
 
         html += `
-                </div>
-            </div>
+                        </div>
+                    </div>
 
-            <div class="price-section">
-                <h3 class="section-title">💰 Precio y Próximos Pasos</h3>
-                <div class="price-card">
-                    <p class="price-text">Tu kit personalizado cuesta: <strong>$800 MXN</strong></p>
-                    <p class="price-desc">Incluye todos los componentes recomendados + videos guiados + ejercicios impresos personalizados</p>
-                    <div class="price-buttons">
+                    <!-- KIT PRICING Y CTA -->
+                    <div class="pricing-section">
+                        <div class="pricing-card">
+                            <div class="pricing-content">
+                                <h3 class="pricing-title">🎁 Tu Kit Personalizado</h3>
+                                <p class="pricing-desc">Incluye todos los componentes recomendados + acceso a:</p>
+                                <ul class="pricing-features">
+                                    <li>✓ Videos guiados de ejercicios (30+ videos HD)</li>
+                                    <li>✓ Plan de ejercicios impreso personalizado</li>
+                                    <li>✓ Seguimiento por especialista (primeros 30 días)</li>
+                                    <li>✓ Acceso a app de registro de progreso</li>
+                                    <li>✓ Ajustes gratuitos después de 15 días</li>
+                                </ul>
+                                <div class="pricing-amount">
+                                    <span class="price-label">Precio Total:</span>
+                                    <span class="price-value">$800 MXN</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BOTONES DE ACCIÓN -->
+                    <div class="action-buttons">
                         <button class="btn btn-primary" id="purchaseBtn">
-                            <i class="fas fa-shopping-cart"></i> Comprar Ahora
+                            <i class="fas fa-shopping-cart"></i> Comprar Kit Personalizado
                         </button>
-                        <button class="btn btn-secondary" id="restartBtn">
-                            <i class="fas fa-redo"></i> Hacer otro cuestionario
+                        <button class="btn btn-secondary" id="contactBtn">
+                            <i class="fas fa-phone"></i> Contactar Asesor
+                        </button>
+                        <button class="btn btn-outline" id="restartBtn">
+                            <i class="fas fa-redo"></i> Hacer Otro Cuestionario
                         </button>
                     </div>
-                </div>
-            </div>
 
-            <div class="share-section">
-                <h3 class="section-title">📱 Comparte tu Resultado</h3>
-                <div class="share-buttons">
-                    <button class="share-btn facebook" onclick="window.open('https://facebook.com/share.php?u=' + window.location.href)">
-                        <i class="fab fa-facebook-f"></i> Facebook
-                    </button>
-                    <button class="share-btn whatsapp" onclick="window.open('https://wa.me/?text=' + window.location.href)">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </button>
-                    <button class="share-btn email" onclick="window.open('mailto:?body=' + window.location.href)">
-                        <i class="fas fa-envelope"></i> Email
-                    </button>
+                    <!-- NOTA IMPORTANTE -->
+                    <div class="disclaimer-section">
+                        <p class="disclaimer-text">
+                            <strong>⚕️ Aviso Importante:</strong> Este cuestionario proporciona recomendaciones generales basadas en tus respuestas. 
+                            Es fundamental que consultes con un profesional de la salud calificado antes de iniciar cualquier programa de rehabilitación. 
+                            NeuroSense Kit no reemplaza la evaluación médica profesional.
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </div>
             </div>
         `;
 
         return html;
     }
 
+    // Métodos auxiliares para extraer información
+    formatLabel(text) {
+        const labels = {
+            fisica: "Rehabilitación Física",
+            sensorial: "Estimulación Sensorial",
+            cognitiva: "Rehabilitación Cognitiva",
+            motriz: "Habilitación Motriz",
+            auditiva: "Habilitación Auditiva"
+        };
+        return labels[text] || text;
+    }
+
+    getRehabTypes() {
+        const types = this.answers[1] || [];
+        if (types.length === 0) return "No especificado";
+        return types.map(t => this.formatLabel(t)).join(", ");
+    }
+
+    getAffectedAreas() {
+        const areas = this.answers[2] || [];
+        if (areas.length === 0) return "No especificado";
+        const labels = {
+            manos: "Manos y dedos",
+            brazos: "Brazos",
+            piernas: "Piernas",
+            pies: "Pies",
+            cuerpo_completo: "Cuerpo completo"
+        };
+        return areas.map(a => labels[a] || a).join(", ");
+    }
+
+    getPrimarySymptoms() {
+        const symptoms = this.answers[3] || [];
+        if (symptoms.length === 0) return "No especificado";
+        const labels = {
+            debilidad_muscular: "Debilidad muscular",
+            falta_coordinacion: "Falta de coordinación",
+            dolor: "Dolor o molestia",
+            perdida_sensibilidad: "Pérdida de sensibilidad",
+            rigidez: "Rigidez o espasticidad",
+            falta_equilibrio: "Falta de equilibrio"
+        };
+        return symptoms.slice(0, 3).map(s => labels[s] || s).join(", ");
+    }
+
+    getMovementRange() {
+        const range = this.answers[4];
+        const labels = {
+            muy_limitado: "Muy limitado",
+            limitado: "Limitado",
+            moderado: "Moderado",
+            bueno: "Bueno"
+        };
+        return labels[range] || "No especificado";
+    }
+
+    getTreatmentFrequency() {
+        const intensity = this.answers[7];
+        const labels = {
+            no_realiza: "3-4 sesiones por semana (recomendado para iniciar)",
+            "1_2_veces": "4-5 sesiones por semana",
+            "3_4_veces": "4-5 sesiones por semana (actual)",
+            "5_mas_veces": "5-6 sesiones por semana con días de recuperación"
+        };
+        return labels[intensity] || "3-4 sesiones por semana";
+    }
+
+    getSessionDuration() {
+        const intensity = this.answers[7];
+        return intensity === "no_realiza" ? "20-30 minutos (iniciantes)" : "30-45 minutos";
+    }
+
+    getProgramDuration() {
+        const duration = this.answers[6];
+        const labels = {
+            menos_1_mes: "Programa de 8-12 semanas desde ahora",
+            "1_3_meses": "Programa de 8-10 semanas de continuidad",
+            "3_6_meses": "Programa de 6-8 semanas de consolidación",
+            "mas_6_meses": "Programa de 4-6 semanas de especialización",
+            no_ha_iniciado: "Programa inicial de 12 semanas"
+        };
+        return labels[duration] || "8-12 semanas";
+    }
+
+    getPrimaryObjective() {
+        const objective = this.answers[9];
+        const labels = {
+            recuperar_funcionalidad: "Recuperar funcionalidad perdida",
+            mejorar_sensibilidad: "Mejorar sensibilidad y percepción",
+            aumentar_fuerza: "Aumentar fuerza y resistencia",
+            mejorar_coordinacion: "Mejorar coordinación y equilibrio",
+            mantener_capacidades: "Mantener capacidades actuales"
+        };
+        return labels[objective] || "Mejorar capacidades funcionales";
+    }
+
     attachResultsEventListeners() {
         const purchaseBtn = document.getElementById('purchaseBtn');
         const restartBtn = document.getElementById('restartBtn');
+        const contactBtn = document.getElementById('contactBtn');
 
         if (purchaseBtn) {
             purchaseBtn.addEventListener('click', () => {
-                alert('¡Gracias por tu compra! Te contactaremos pronto para confirmar tu pedido.');
+                alert('¡Perfecto! En breve te contactaremos para confirmar tu pedido y procesar el pago.\n\nTe enviaremos un email con los detalles de tu compra.');
                 // Aquí iría la integración con un sistema de pago
+                // window.location.href = 'checkout.html';
+            });
+        }
+
+        if (contactBtn) {
+            contactBtn.addEventListener('click', () => {
+                window.location.href = 'https://wa.me/5215512345678?text=Hola,%20me%20gustaría%20asesoría%20sobre%20mi%20kit%20personalizado';
+                // O puedes redirigir a un formulario de contacto
+                // window.location.href = '#contacto';
             });
         }
 
