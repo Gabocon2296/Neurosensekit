@@ -509,7 +509,7 @@ class Questionnaire {
 
                     <!-- COMPONENTES DEL KIT -->
                     <div class="kit-components-section">
-                        <h3 class="section-title">📦 Componentes Personalizados</h3>
+                        <h3 class="section-title">📦 Componentes</h3>
                         <div class="components-grid">
         `;
 
@@ -521,21 +521,10 @@ class Questionnaire {
                 motriz: "🤲",
                 auditiva: "👂"
             };
-            const svgMap = {
-                fisica: this.getSVGFisica(),
-                sensorial: this.getSVGSensorial(),
-                cognitiva: this.getSVGCognitiva(),
-                motriz: this.getSVGMotriz(),
-                auditiva: this.getSVGAuditiva()
-            };
             const icon = iconMap[component.type] || "📦";
-            const svg = svgMap[component.type] || '';
             
             html += `
                 <div class="component-card">
-                    <div class="component-visual">
-                        ${svg}
-                    </div>
                     <div class="component-header">
                         <span class="component-icon">${icon}</span>
                         <h4 class="component-title">${this.formatLabel(component.type)}</h4>
@@ -550,7 +539,7 @@ class Questionnaire {
                         <div class="item-content">
                             <div class="item-name">${item.name}</div>
                             <div class="item-desc">${item.description}</div>
-                            <div class="item-qty">Cantidad: ${item.quantity}</div>
+                            <div class="item-qty">x${item.quantity}</div>
                         </div>
                     </div>
                 `;
@@ -750,129 +739,6 @@ class Questionnaire {
             mantener_capacidades: "Mantener capacidades actuales"
         };
         return labels[objective] || "Mejorar capacidades funcionales";
-    }
-
-    // Métodos para generar SVGs de componentes
-    getSVGFisica() {
-        return `
-            <svg viewBox="0 0 200 200" class="component-svg">
-                <defs>
-                    <linearGradient id="grad-fisica" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#FF8E8E;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <!-- Cuerpo -->
-                <circle cx="100" cy="60" r="25" fill="url(#grad-fisica)"/>
-                <!-- Brazos -->
-                <line x1="75" y1="70" x2="40" y2="90" stroke="url(#grad-fisica)" stroke-width="8" stroke-linecap="round"/>
-                <line x1="125" y1="70" x2="160" y2="90" stroke="url(#grad-fisica)" stroke-width="8" stroke-linecap="round"/>
-                <!-- Pecho -->
-                <rect x="70" y="90" width="60" height="50" rx="10" fill="url(#grad-fisica)" opacity="0.7"/>
-                <!-- Piernas -->
-                <line x1="85" y1="140" x2="75" y2="180" stroke="url(#grad-fisica)" stroke-width="8" stroke-linecap="round"/>
-                <line x1="115" y1="140" x2="125" y2="180" stroke="url(#grad-fisica)" stroke-width="8" stroke-linecap="round"/>
-                <!-- Mancuerna -->
-                <circle cx="40" cy="110" r="8" fill="#FFD700"/>
-                <rect x="35" y="105" width="10" height="10" fill="#FFD700"/>
-            </svg>
-        `;
-    }
-
-    getSVGSensorial() {
-        return `
-            <svg viewBox="0 0 200 200" class="component-svg">
-                <defs>
-                    <linearGradient id="grad-sensorial" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#4ECDC4;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#44A08D;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <!-- Ojo grande -->
-                <circle cx="100" cy="100" r="60" fill="none" stroke="url(#grad-sensorial)" stroke-width="4"/>
-                <!-- Pupila -->
-                <circle cx="100" cy="100" r="35" fill="url(#grad-sensorial)"/>
-                <!-- Brillo -->
-                <circle cx="85" cy="80" r="15" fill="white" opacity="0.8"/>
-                <!-- Textura sensorial -->
-                <circle cx="60" cy="60" r="8" fill="#4ECDC4" opacity="0.6"/>
-                <circle cx="140" cy="60" r="8" fill="#4ECDC4" opacity="0.6"/>
-                <circle cx="50" cy="120" r="6" fill="#44A08D" opacity="0.5"/>
-                <circle cx="150" cy="120" r="6" fill="#44A08D" opacity="0.5"/>
-            </svg>
-        `;
-    }
-
-    getSVGCognitiva() {
-        return `
-            <svg viewBox="0 0 200 200" class="component-svg">
-                <defs>
-                    <linearGradient id="grad-cognitiva" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#A8E6CF;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#56CCF2;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <!-- Cerebro -->
-                <path d="M 100 50 Q 120 60 120 85 Q 120 110 100 120 Q 80 110 80 85 Q 80 60 100 50" fill="url(#grad-cognitiva)"/>
-                <!-- Ondas de pensamiento -->
-                <path d="M 100 140 Q 130 150 140 170" stroke="url(#grad-cognitiva)" stroke-width="3" fill="none" stroke-linecap="round"/>
-                <path d="M 100 140 Q 70 150 60 170" stroke="url(#grad-cognitiva)" stroke-width="3" fill="none" stroke-linecap="round"/>
-                <!-- Circuitos -->
-                <circle cx="90" cy="85" r="4" fill="white"/>
-                <circle cx="110" cy="85" r="4" fill="white"/>
-                <circle cx="100" cy="95" r="4" fill="white"/>
-                <line x1="90" y1="85" x2="110" y2="85" stroke="white" stroke-width="1"/>
-            </svg>
-        `;
-    }
-
-    getSVGMotriz() {
-        return `
-            <svg viewBox="0 0 200 200" class="component-svg">
-                <defs>
-                    <linearGradient id="grad-motriz" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#FFB84D;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#FF8C42;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <!-- Mano -->
-                <circle cx="100" cy="80" r="20" fill="url(#grad-motriz)"/>
-                <!-- Dedos -->
-                <rect x="70" y="40" width="8" height="45" rx="4" fill="url(#grad-motriz)" transform="rotate(-30 74 40)"/>
-                <rect x="78" y="30" width="8" height="50" rx="4" fill="url(#grad-motriz)"/>
-                <rect x="86" y="28" width="8" height="52" rx="4" fill="url(#grad-motriz)"/>
-                <rect x="114" y="30" width="8" height="50" rx="4" fill="url(#grad-motriz)"/>
-                <rect x="122" y="40" width="8" height="45" rx="4" fill="url(#grad-motriz)" transform="rotate(30 126 40)"/>
-                <!-- Muñeca y brazo -->
-                <rect x="95" y="95" width="10" height="70" fill="url(#grad-motriz)" opacity="0.7"/>
-                <!-- Movimiento -->
-                <path d="M 100 165 Q 110 175 115 185" stroke="url(#grad-motriz)" stroke-width="2" fill="none" stroke-linecap="round"/>
-            </svg>
-        `;
-    }
-
-    getSVGAuditiva() {
-        return `
-            <svg viewBox="0 0 200 200" class="component-svg">
-                <defs>
-                    <linearGradient id="grad-auditiva" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#E0BBE4;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#D291BC;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <!-- Oído externo -->
-                <path d="M 70 80 Q 60 90 60 110 Q 60 130 70 140" fill="none" stroke="url(#grad-auditiva)" stroke-width="6"/>
-                <!-- Oído interno -->
-                <circle cx="85" cy="110" r="12" fill="url(#grad-auditiva)"/>
-                <!-- Ondas de sonido -->
-                <circle cx="120" cy="90" r="15" fill="none" stroke="url(#grad-auditiva)" stroke-width="2" opacity="0.8"/>
-                <circle cx="120" cy="90" r="25" fill="none" stroke="url(#grad-auditiva)" stroke-width="2" opacity="0.5"/>
-                <circle cx="120" cy="90" r="35" fill="none" stroke="url(#grad-auditiva)" stroke-width="2" opacity="0.3"/>
-                <!-- Más ondas -->
-                <circle cx="140" cy="130" r="12" fill="none" stroke="url(#grad-auditiva)" stroke-width="2" opacity="0.7"/>
-                <circle cx="140" cy="130" r="20" fill="none" stroke="url(#grad-auditiva)" stroke-width="2" opacity="0.4"/>
-            </svg>
-        `;
     }
 
     attachResultsEventListeners() {
