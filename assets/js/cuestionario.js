@@ -478,38 +478,30 @@ class Questionnaire {
                 <div class="results-header">
                     <div class="results-badge">✓ EVALUACIÓN COMPLETADA</div>
                     <h2 class="results-title">Tu Kit Personalizado</h2>
-                    <p class="results-subtitle">${kit.summary}</p>
                 </div>
 
                 <div class="results-content">
-                    <!-- TARJETA DE DIAGNÓSTICO GENERAL -->
-                    <div class="diagnosis-section">
-                        <div class="diagnosis-card">
-                            <h3 class="diagnosis-title">📋 Resumen de tu Evaluación</h3>
-                            <div class="diagnosis-details">
-                                <div class="detail-item">
-                                    <span class="detail-label">Tipos de Rehabilitación:</span>
-                                    <span class="detail-value">${this.getRehabTypes()}</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Áreas a Atender:</span>
-                                    <span class="detail-value">${this.getAffectedAreas()}</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Síntomas Principales:</span>
-                                    <span class="detail-value">${this.getPrimarySymptoms()}</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Rango de Movimiento:</span>
-                                    <span class="detail-value">${this.getMovementRange()}</span>
-                                </div>
+                    <!-- RESUMEN RÁPIDO -->
+                    <div class="quick-summary">
+                        <div class="summary-item">
+                            <span class="summary-icon">📋</span>
+                            <div class="summary-text">
+                                <p class="summary-label">Tipos de Rehabilitación</p>
+                                <p class="summary-value">${this.getRehabTypes()}</p>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-icon">🎯</span>
+                            <div class="summary-text">
+                                <p class="summary-label">Objetivo Principal</p>
+                                <p class="summary-value">${this.getPrimaryObjective()}</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- COMPONENTES DEL KIT -->
+                    <!-- COMPONENTES DEL KIT (SIMPLIFICADO) -->
                     <div class="kit-components-section">
-                        <h3 class="section-title">📦 Componentes</h3>
+                        <h3 class="section-title">📦 Tu Kit Incluye</h3>
                         <div class="components-grid">
         `;
 
@@ -524,25 +516,14 @@ class Questionnaire {
             const icon = iconMap[component.type] || "📦";
             
             html += `
-                <div class="component-card">
-                    <div class="component-header">
-                        <span class="component-icon">${icon}</span>
-                        <h4 class="component-title">${this.formatLabel(component.type)}</h4>
-                    </div>
-                    <div class="component-items">
+                <div class="component-card-compact">
+                    <div class="component-icon-compact">${icon}</div>
+                    <h4 class="component-title-compact">${this.formatLabel(component.type)}</h4>
+                    <div class="items-compact">
             `;
 
-            component.items.forEach((item, idx) => {
-                html += `
-                    <div class="item">
-                        <div class="item-number">${idx + 1}</div>
-                        <div class="item-content">
-                            <div class="item-name">${item.name}</div>
-                            <div class="item-desc">${item.description}</div>
-                            <div class="item-qty">x${item.quantity}</div>
-                        </div>
-                    </div>
-                `;
+            component.items.forEach((item) => {
+                html += `<div class="item-compact">• ${item.name} x${item.quantity}</div>`;
             });
 
             html += `
@@ -553,41 +534,22 @@ class Questionnaire {
                         </div>
                     </div>
 
-                    <!-- PLAN DE TRATAMIENTO -->
-                    <div class="treatment-plan-section">
-                        <h3 class="section-title">📅 Plan de Tratamiento Personalizado</h3>
-                        <div class="treatment-grid">
-                            <div class="treatment-card">
-                                <h4 class="treatment-title">⏰ Frecuencia Recomendada</h4>
-                                <p class="treatment-content">${this.getTreatmentFrequency()}</p>
+                    <!-- PLAN DE TRATAMIENTO COMPACTO -->
+                    <div class="treatment-summary">
+                        <h3 class="section-title">📅 Plan Recomendado</h3>
+                        <div class="treatment-row">
+                            <div class="treatment-item-compact">
+                                <span class="treatment-icon">⏰</span>
+                                <p class="treatment-compact">${this.getTreatmentFrequency()}</p>
                             </div>
-                            <div class="treatment-card">
-                                <h4 class="treatment-title">⏱️ Duración de Sesión</h4>
-                                <p class="treatment-content">${this.getSessionDuration()}</p>
+                            <div class="treatment-item-compact">
+                                <span class="treatment-icon">⏱️</span>
+                                <p class="treatment-compact">${this.getSessionDuration()}</p>
                             </div>
-                            <div class="treatment-card">
-                                <h4 class="treatment-title">📊 Duración del Programa</h4>
-                                <p class="treatment-content">${this.getProgramDuration()}</p>
+                            <div class="treatment-item-compact">
+                                <span class="treatment-icon">📊</span>
+                                <p class="treatment-compact">${this.getProgramDuration()}</p>
                             </div>
-                            <div class="treatment-card">
-                                <h4 class="treatment-title">📈 Objetivo Principal</h4>
-                                <p class="treatment-content">${this.getPrimaryObjective()}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- RECOMENDACIONES PROFESIONALES -->
-                    <div class="recommendations-section">
-                        <h3 class="section-title">💡 Recomendaciones Profesionales</h3>
-                        <div class="recommendations-list">
-        `;
-
-        kit.recommendations.forEach((rec, idx) => {
-            const priority = idx < 3 ? "high" : "normal";
-            html += `<div class="recommendation-item priority-${priority}"><span class="rec-number">${idx + 1}</span>${rec}</div>`;
-        });
-
-        html += `
                         </div>
                     </div>
 
@@ -595,31 +557,21 @@ class Questionnaire {
                     <div class="pricing-section">
                         <div class="pricing-card">
                             <div class="pricing-badge">✓ RECOMENDADO PROFESIONALMENTE</div>
-                            <div class="pricing-content-wrapper">
-                                <div class="pricing-content">
-                                    <h3 class="pricing-title">🎁 Tu Kit Personalizado</h3>
-                                    <p class="pricing-desc">Basado en tu evaluación profesional, incluye:</p>
-                                    <ul class="pricing-features">
-                                        <li><span class="check-icon">✓</span> Todos los componentes recomendados personalizados</li>
-                                        <li><span class="check-icon">✓</span> 30+ videos HD de ejercicios demostrativos</li>
-                                        <li><span class="check-icon">✓</span> Plan de ejercicios impreso y personalizado</li>
-                                        <li><span class="check-icon">✓</span> Seguimiento profesional por 30 días</li>
-                                        <li><span class="check-icon">✓</span> App móvil para registro de progreso</li>
-                                        <li><span class="check-icon">✓</span> Ajustes gratuitos después de 15 días</li>
-                                        <li><span class="check-icon">✓</span> Garantía de satisfacción 100%</li>
-                                    </ul>
-                                    <div class="pricing-highlight">
-                                        <p class="highlight-text">Envío incluido a todo México</p>
-                                    </div>
-                                    <div class="pricing-amount">
-                                        <span class="price-label">Precio Final:</span>
-                                        <span class="price-value">$800 MXN</span>
-                                        <span class="price-period">(Kit completo + 30 días de seguimiento)</span>
-                                    </div>
+                            <div class="pricing-content-compact">
+                                <h3 class="pricing-title">🎁 Tu Kit Personalizado</h3>
+                                <ul class="pricing-features-compact">
+                                    <li><span class="check-icon">✓</span> Todos los componentes personalizados</li>
+                                    <li><span class="check-icon">✓</span> 30+ videos HD de ejercicios</li>
+                                    <li><span class="check-icon">✓</span> Plan impreso personalizado</li>
+                                    <li><span class="check-icon">✓</span> Seguimiento 30 días</li>
+                                    <li><span class="check-icon">✓</span> App de progreso + Ajustes gratis</li>
+                                </ul>
+                                <div class="pricing-highlight">
+                                    <p class="highlight-text">Envío incluido a todo México</p>
                                 </div>
-                                <div class="pricing-image">
-                                    <img src="assets/images/hero2.png" alt="Kit NeuroSense Premium" class="kit-hero-image"/>
-                                    <div class="image-badge">Kit Premium</div>
+                                <div class="pricing-amount">
+                                    <span class="price-label">Precio Final:</span>
+                                    <span class="price-value">$800 MXN</span>
                                 </div>
                             </div>
                         </div>
@@ -634,17 +586,8 @@ class Questionnaire {
                             <i class="fas fa-phone"></i> Contactar Asesor
                         </button>
                         <button class="btn btn-outline" id="restartBtn">
-                            <i class="fas fa-redo"></i> Hacer Otro Cuestionario
+                            <i class="fas fa-redo"></i> Nuevo Cuestionario
                         </button>
-                    </div>
-
-                    <!-- NOTA IMPORTANTE -->
-                    <div class="disclaimer-section">
-                        <p class="disclaimer-text">
-                            <strong>⚕️ Aviso Importante:</strong> Este cuestionario proporciona recomendaciones generales basadas en tus respuestas. 
-                            Es fundamental que consultes con un profesional de la salud calificado antes de iniciar cualquier programa de rehabilitación. 
-                            NeuroSense Kit no reemplaza la evaluación médica profesional.
-                        </p>
                     </div>
                 </div>
             </div>

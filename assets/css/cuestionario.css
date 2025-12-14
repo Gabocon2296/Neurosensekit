@@ -698,15 +698,47 @@
 @media (max-width: 768px) {
     .questionnaire-container,
     .results-container {
-        padding: 24px;
+        padding: 20px;
     }
 
     .question-title {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .results-title {
-        font-size: 28px;
+        font-size: 24px;
+    }
+
+    .quick-summary {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .summary-item {
+        gap: 10px;
+    }
+
+    .summary-icon {
+        font-size: 20px;
+    }
+
+    .components-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .component-card-compact {
+        padding: 12px;
+    }
+
+    .treatment-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .treatment-item-compact {
+        padding: 10px;
     }
 
     .pricing-content-wrapper {
@@ -715,28 +747,38 @@
     }
 
     .pricing-image {
-        height: 250px;
+        height: 200px;
     }
 
     .pricing-card {
-        padding: 24px;
+        padding: 20px;
     }
 
     .pricing-title {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .pricing-amount {
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
         text-align: center;
+        padding: 16px;
     }
 
     .price-value {
         font-size: 28px;
     }
-        font-size: 32px;
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 10px;
     }
+
+    .action-buttons .btn {
+        width: 100%;
+        padding: 10px 16px;
+    }
+
 
     .navigation-buttons {
         flex-direction: column;
@@ -1024,3 +1066,142 @@
     margin: 0;
     line-height: 1.5;
 }
+
+/* ESTILOS COMPACTOS PARA RESULTADOS SIMPLIFICADOS */
+.quick-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f0f9ff;
+    border-radius: 12px;
+    border: 1px solid #bfdbfe;
+}
+
+.summary-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.summary-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.summary-text {
+    flex: 1;
+}
+
+.summary-label {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.summary-value {
+    font-size: 14px;
+    color: #1f2937;
+    font-weight: 600;
+    margin: 4px 0 0 0;
+}
+
+.component-card-compact {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    border: 2px solid #e5e7eb;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.component-card-compact:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.component-icon-compact {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.component-title-compact {
+    font-size: 14px;
+    font-weight: 700;
+    color: #3b82f6;
+    margin: 0 0 10px 0;
+}
+
+.items-compact {
+    text-align: left;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.item-compact {
+    padding: 4px 0;
+    line-height: 1.4;
+    color: #374151;
+}
+
+.treatment-summary {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f3f4f6;
+    border-radius: 12px;
+}
+
+.treatment-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.treatment-item-compact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+}
+
+.treatment-icon {
+    font-size: 20px;
+}
+
+.treatment-compact {
+    font-size: 12px;
+    color: #374151;
+    font-weight: 500;
+    margin: 0;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.pricing-content-compact {
+    max-width: 100%;
+}
+
+.pricing-features-compact {
+    list-style: none;
+    padding: 12px;
+    margin: 0 0 16px 0;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+}
+
+.pricing-features-compact li {
+    font-size: 12px;
+    color: #92400e;
+    padding: 6px 0;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
