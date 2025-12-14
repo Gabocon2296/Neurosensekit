@@ -244,11 +244,11 @@ class Questionnaire {
                 </div>
                 
                 <div class="navigation-buttons">
-                    <button class="btn btn-secondary" id="prevBtn" style="display: ${this.currentQuestion === 0 ? 'none' : 'block'}">
-                        <i class="fas fa-arrow-left"></i> Anterior
-                    </button>
                     <button class="btn btn-primary" id="nextBtn">
                         ${this.currentQuestion === this.totalQuestions - 1 ? 'Ver Resultados' : 'Siguiente'} <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-secondary" id="prevBtn" style="display: ${this.currentQuestion === 0 ? 'none' : 'block'}">
+                        <i class="fas fa-arrow-left"></i> Anterior
                     </button>
                 </div>
             </div>
