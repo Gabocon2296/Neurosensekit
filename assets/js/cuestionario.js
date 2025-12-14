@@ -755,7 +755,7 @@ class Questionnaire {
         if (contactBtn) {
             contactBtn.onclick = () => {
                 const message = encodeURIComponent('Hola, me gustaría asesoría sobre mi kit personalizado de rehabilitación. He completado el cuestionario de NeuroSense Kit.');
-                window.open(`https://wa.me/5215512345678?text=${message}`, '_blank');
+                window.open(`https://wa.me/526691163453?text=${message}`, '_blank');
             };
         }
 
