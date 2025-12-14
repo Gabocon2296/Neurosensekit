@@ -247,7 +247,7 @@ class Questionnaire {
                     <button class="btn btn-secondary" id="prevBtn" style="display: ${this.currentQuestion === 0 ? 'none' : 'block'}">
                         <i class="fas fa-arrow-left"></i> Anterior
                     </button>
-                    <button class="btn btn-primary" id="nextBtn" disabled>
+                    <button class="btn btn-primary" id="nextBtn">
                         ${this.currentQuestion === this.totalQuestions - 1 ? 'Ver Resultados' : 'Siguiente'} <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
@@ -334,9 +334,10 @@ class Questionnaire {
 
         // Habilitar botón siguiente si hay selección
         const nextBtn = this.containerEl.querySelector('#nextBtn');
-        const hasAnswer = this.answers[questionId] && 
-            (Array.isArray(this.answers[questionId]) ? this.answers[questionId].length > 0 : true);
-        nextBtn.disabled = !hasAnswer;
+        // Siempre permitir continuar - los usuarios pueden saltar sin responder
+        // const hasAnswer = this.answers[questionId] && 
+        //     (Array.isArray(this.answers[questionId]) ? this.answers[questionId].length > 0 : true);
+        // nextBtn.disabled = !hasAnswer;
     }
 
     nextQuestion() {
@@ -743,25 +744,22 @@ class Questionnaire {
         const contactBtn = document.getElementById('contactBtn');
 
         if (purchaseBtn) {
-            purchaseBtn.addEventListener('click', () => {
-                alert('¡Perfecto! En breve te contactaremos para confirmar tu pedido y procesar el pago.\n\nTe enviaremos un email con los detalles de tu compra.');
-                // Aquí iría la integración con un sistema de pago
-                // window.location.href = 'checkout.html';
-            });
+            purchaseBtn.onclick = () => {
+                alert('¡Excelente! Tu kit personalizado está listo.\n\nEn breve te contactaremos para confirmar tu pedido y procesar el pago.\n\nTe enviaremos un email con todos los detalles de tu compra y el kit completo.');
+            };
         }
 
         if (contactBtn) {
-            contactBtn.addEventListener('click', () => {
-                window.location.href = 'https://wa.me/5215512345678?text=Hola,%20me%20gustaría%20asesoría%20sobre%20mi%20kit%20personalizado';
-                // O puedes redirigir a un formulario de contacto
-                // window.location.href = '#contacto';
-            });
+            contactBtn.onclick = () => {
+                const message = encodeURIComponent('Hola, me gustaría asesoría sobre mi kit personalizado de rehabilitación. He completado el cuestionario de NeuroSense Kit.');
+                window.open(`https://wa.me/5215512345678?text=${message}`, '_blank');
+            };
         }
 
         if (restartBtn) {
-            restartBtn.addEventListener('click', () => {
+            restartBtn.onclick = () => {
                 this.restart();
-            });
+            };
         }
     }
 
