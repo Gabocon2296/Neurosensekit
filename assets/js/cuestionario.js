@@ -188,7 +188,7 @@ class Questionnaire {
         if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
             return 'http://localhost:3000/api/respuestas';
         }
-        return 'https://neurosensekit-api.railway.app/api/respuestas';
+        return 'https://web-production-66b7a.up.railway.app/api/respuestas';
     }
 
     initialize(containerId) {
