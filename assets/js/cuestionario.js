@@ -181,6 +181,14 @@ class Questionnaire {
         this.answers = {};
         this.totalQuestions = questionnaireData.questions.length;
         this.containerEl = null;
+        this.apiUrl = this.getApiUrl();
+    }
+
+    getApiUrl() {
+        if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+            return 'http://localhost:3000/api/respuestas';
+        }
+        return 'https://neurosensekit-api.railway.app/api/respuestas';
     }
 
     initialize(containerId) {
@@ -356,7 +364,7 @@ class Questionnaire {
 
     sendToServer(datos) {
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'http://localhost:3000/api/respuestas', true);
+        xhr.open('POST', this.apiUrl, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
 
         xhr.onload = () => {
