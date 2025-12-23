@@ -1,10 +1,3 @@
-// ============================================
-// NEUROSENSE KIT - INTERACTIVIDAD AVANZADA
-// ============================================
-
-console.log("🧠 NeuroSense Kit - Website listo. Todos los sistemas activos.");
-
-// Smooth scroll para enlaces internos
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -18,7 +11,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Efecto de animación al pasar el mouse sobre tarjetas
 const cards = document.querySelectorAll('.rounded-xl');
 cards.forEach(card => {
     card.addEventListener('mouseenter', function() {
@@ -30,22 +22,6 @@ cards.forEach(card => {
     });
 });
 
-// Contador de elementos (para estadísticas)
-function animateCounter(element, target, duration = 2000) {
-    let current = 0;
-    const increment = target / (duration / 16);
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = target;
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(current);
-        }
-    }, 16);
-}
-
-// Observador de elementos en viewport
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -57,12 +33,10 @@ const observer = new IntersectionObserver((entries) => {
     threshold: 0.1
 });
 
-// Observar todas las tarjetas
 document.querySelectorAll('.rounded-xl').forEach(el => {
     observer.observe(el);
 });
 
-// Efecto de scroll en header
 let lastScrollTop = 0;
 const header = document.querySelector('header');
 
@@ -80,7 +54,6 @@ window.addEventListener('scroll', function() {
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
 
-// Efecto de hover mejorado en botones
 const buttons = document.querySelectorAll('a[class*="bg-gradient"]');
 buttons.forEach(button => {
     button.addEventListener('mousedown', function() {
@@ -92,7 +65,6 @@ buttons.forEach(button => {
     });
     
     button.addEventListener('click', function(e) {
-        // Efecto de ripple
         const ripple = document.createElement('span');
         const rect = this.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
@@ -108,42 +80,7 @@ buttons.forEach(button => {
     });
 });
 
-// Función para validación de formulario (preparado para futuro cuestionario)
-function validateForm(formData) {
-    const errors = [];
-    
-    Object.keys(formData).forEach(key => {
-        if (!formData[key] || formData[key].trim() === '') {
-            errors.push(`${key} es requerido`);
-        }
-    });
-    
-    return errors;
-}
-
-// Log de visitantes únicos (para analytics)
-if (!localStorage.getItem('neurosensekit_visited')) {
-    localStorage.setItem('neurosensekit_visited', 'true');
-    localStorage.setItem('visit_date', new Date().toISOString());
-    console.log('Primer visitante registrado');
-}
-
-// Método para reproducir animación de entrada en elementos específicos
-function triggerElementAnimation(selector, animationName = 'fadeInUp') {
-    const elements = document.querySelectorAll(selector);
-    elements.forEach(el => {
-        el.classList.remove('animate__animated', `animate__${animationName}`);
-        // Trigger reflow para reiniciar la animación
-        void el.offsetWidth;
-        el.classList.add('animate__animated', `animate__${animationName}`);
-    });
-}
-
-// Inicializar
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM cargado - Aplicación lista');
-    
-    // Verificar si el navegador soporta Intersection Observer
     if (!('IntersectionObserver' in window)) {
         console.warn('IntersectionObserver no soportado');
     }

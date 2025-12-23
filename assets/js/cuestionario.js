@@ -1,8 +1,3 @@
-// ============================================
-// CUESTIONARIO INTERACTIVO - NEUROSENSE KIT
-// ============================================
-
-// Datos del cuestionario
 const questionnaireData = {
     questions: [
         {
@@ -141,53 +136,45 @@ const questionnaireData = {
             ]
         }
     ],
-
-    // Componentes recomendados por categoría
     kitComponents: {
         fisica: {
             items: [
-                { name: "Bandas elásticas resistentes", quantity: 3, description: "Diferentes niveles de resistencia para fortalecimiento" },
-                { name: "Pelotas terapéuticas", quantity: 4, description: "Diferentes tamaños para ejercicios de fuerza y coordinación" },
-                { name: "Barras de equilibrio", quantity: 1, description: "Para trabajar estabilidad y coordinación" }
-            ],
-            priority: "alta"
+                { name: "Bandas elásticas resistentes", quantity: 3 },
+                { name: "Pelotas terapéuticas", quantity: 4 },
+                { name: "Barras de equilibrio", quantity: 1 }
+            ]
         },
         sensorial: {
             items: [
-                { name: "Pelotas sensoriales texturizadas", quantity: 5, description: "Diferentes texturas para estimulación táctil" },
-                { name: "Tubos sensoriales", quantity: 2, description: "Estimulación visual y táctil" },
-                { name: "Herramientas de estimulación táctil", quantity: 3, description: "Para diferentes tipos de toque" }
-            ],
-            priority: "alta"
+                { name: "Pelotas sensoriales texturizadas", quantity: 5 },
+                { name: "Tubos sensoriales", quantity: 2 },
+                { name: "Herramientas de estimulación táctil", quantity: 3 }
+            ]
         },
         cognitiva: {
             items: [
-                { name: "Fichas de ejercicios mentales", quantity: "personalizadas", description: "Impresos según evaluación" },
-                { name: "Videos de entrenamiento cognitivo", quantity: "acceso", description: "Plataforma de ejercicios interactivos" },
-                { name: "Guía de estimulación cerebral", quantity: 1, description: "Protocolo personalizado" }
-            ],
-            priority: "media"
+                { name: "Fichas de ejercicios mentales", quantity: 1 },
+                { name: "Videos de entrenamiento cognitivo", quantity: 1 },
+                { name: "Guía de estimulación cerebral", quantity: 1 }
+            ]
         },
         motriz: {
             items: [
-                { name: "Conos de coordinación", quantity: 6, description: "Para ejercicios de motricidad gruesa" },
-                { name: "Escalera de agilidad", quantity: 1, description: "Entrenamiento de velocidad y coordinación" },
-                { name: "Pelotas de diferentes pesos", quantity: 4, description: "Progresión de dificultad" }
-            ],
-            priority: "alta"
+                { name: "Conos de coordinación", quantity: 6 },
+                { name: "Escalera de agilidad", quantity: 1 },
+                { name: "Pelotas de diferentes pesos", quantity: 4 }
+            ]
         },
         auditiva: {
             items: [
-                { name: "Audífonos de prueba", quantity: 1, description: "Para evaluación y ajuste" },
-                { name: "Ejercicios auditivos", quantity: "personalizados", description: "Protocolos específicos" },
-                { name: "Materiales informativos", quantity: 1, description: "Guía de habilitación auditiva" }
-            ],
-            priority: "media"
+                { name: "Audífonos de prueba", quantity: 1 },
+                { name: "Ejercicios auditivos", quantity: 1 },
+                { name: "Materiales informativos", quantity: 1 }
+            ]
         }
     }
 };
 
-// Clase para gestionar el cuestionario
 class Questionnaire {
     constructor() {
         this.currentQuestion = 0;
@@ -198,10 +185,7 @@ class Questionnaire {
 
     initialize(containerId) {
         this.containerEl = document.getElementById(containerId);
-        if (!this.containerEl) {
-            console.error(`Contenedor ${containerId} no encontrado`);
-            return;
-        }
+        if (!this.containerEl) return;
         this.render();
     }
 
@@ -210,7 +194,6 @@ class Questionnaire {
             this.showResults();
             return;
         }
-
         const question = questionnaireData.questions[this.currentQuestion];
         this.containerEl.innerHTML = this.getQuestionHTML(question);
         this.attachEventListeners(question);
@@ -218,7 +201,6 @@ class Questionnaire {
 
     getQuestionHTML(question) {
         const progress = ((this.currentQuestion / this.totalQuestions) * 100).toFixed(0);
-        
         let html = `
             <div class="questionnaire-container animate__animated animate__fadeIn">
                 <div class="question-header">
@@ -227,10 +209,7 @@ class Questionnaire {
                     </div>
                     <p class="progress-text">Pregunta ${this.currentQuestion + 1} de ${this.totalQuestions}</p>
                 </div>
-                
                 <h2 class="question-title">${question.question}</h2>
-                <p class="question-description">Selecciona una o más opciones según corresponda</p>
-                
                 <div class="options-container">
         `;
 
@@ -242,7 +221,6 @@ class Questionnaire {
 
         html += `
                 </div>
-                
                 <div class="navigation-buttons">
                     <button class="btn btn-primary" id="nextBtn">
                         ${this.currentQuestion === this.totalQuestions - 1 ? 'Ver Resultados' : 'Siguiente'} <i class="fas fa-arrow-right"></i>
@@ -253,18 +231,13 @@ class Questionnaire {
                 </div>
             </div>
         `;
-
         return html;
     }
 
     renderCheckboxOptions(question) {
         return question.options.map(option => `
             <label class="option-label checkbox-option">
-                <input 
-                    type="checkbox" 
-                    name="${question.id}" 
-                    value="${option.value}"
-                    class="option-input"
+                <input type="checkbox" name="${question.id}" value="${option.value}" class="option-input"
                     ${this.isOptionSelected(question.id, option.value) ? 'checked' : ''}
                 />
                 <div class="option-content">
@@ -278,11 +251,7 @@ class Questionnaire {
     renderSingleOptions(question) {
         return question.options.map(option => `
             <label class="option-label radio-option">
-                <input 
-                    type="radio" 
-                    name="${question.id}" 
-                    value="${option.value}"
-                    class="option-input"
+                <input type="radio" name="${question.id}" value="${option.value}" class="option-input"
                     ${this.isOptionSelected(question.id, option.value) ? 'checked' : ''}
                 />
                 <div class="option-content">
@@ -296,11 +265,7 @@ class Questionnaire {
     isOptionSelected(questionId, optionValue) {
         const answer = this.answers[questionId];
         if (!answer) return false;
-        
-        if (Array.isArray(answer)) {
-            return answer.includes(optionValue);
-        }
-        return answer === optionValue;
+        return Array.isArray(answer) ? answer.includes(optionValue) : answer === optionValue;
     }
 
     attachEventListeners(question) {
@@ -320,9 +285,7 @@ class Questionnaire {
         const question = questionnaireData.questions.find(q => q.id === questionId);
         
         if (question.type === "checkbox") {
-            if (!this.answers[questionId]) {
-                this.answers[questionId] = [];
-            }
+            if (!this.answers[questionId]) this.answers[questionId] = [];
             if (input.checked) {
                 this.answers[questionId].push(input.value);
             } else {
@@ -331,13 +294,6 @@ class Questionnaire {
         } else {
             this.answers[questionId] = input.value;
         }
-
-        // Habilitar botón siguiente si hay selección
-        const nextBtn = this.containerEl.querySelector('#nextBtn');
-        // Siempre permitir continuar - los usuarios pueden saltar sin responder
-        // const hasAnswer = this.answers[questionId] && 
-        //     (Array.isArray(this.answers[questionId]) ? this.answers[questionId].length > 0 : true);
-        // nextBtn.disabled = !hasAnswer;
     }
 
     nextQuestion() {
@@ -357,246 +313,130 @@ class Questionnaire {
     }
 
     showResults() {
-        const kit = this.generateKit();
-        const resultsHTML = this.getResultsHTML(kit);
-        this.containerEl.innerHTML = resultsHTML;
-        this.attachResultsEventListeners();
+        const datosEnvio = this.prepareDataForServer();
+        const validacion = this.validateData(datosEnvio);
+        
+        if (!validacion.valido) {
+            this.displayError(validacion.error);
+            return;
+        }
+        
+        this.sendToServer(datosEnvio);
     }
 
-    generateKit() {
-        const selectedRehabTypes = this.answers[1] || [];
-        const kit = {
-            components: [],
-            recommendations: [],
-            summary: ""
+    prepareDataForServer() {
+        return {
+            tipo_rehabilitacion: this.answers[1] || [],
+            area_afectada: this.answers[2] || [],
+            sintomas: this.answers[3] || [],
+            rango_movimiento: this.answers[4] || "",
+            historial_medico: this.answers[5] || [],
+            duracion_rehabilitacion: this.answers[6] || "",
+            intensidad_ejercicio: this.answers[7] || "",
+            sensibilidad: this.answers[8] || [],
+            objetivos: this.answers[9] || "",
+            edad: this.answers[10] || "",
+            nombre: "",
+            email: "",
+            telefono: ""
         };
+    }
 
-        // Agregar componentes según tipo de rehabilitación
-        selectedRehabTypes.forEach(type => {
-            if (questionnaireData.kitComponents[type]) {
-                kit.components.push({
-                    type: type,
-                    items: questionnaireData.kitComponents[type].items,
-                    priority: questionnaireData.kitComponents[type].priority
-                });
+    validateData(datos) {
+        const required = ['tipo_rehabilitacion', 'edad'];
+        
+        for (let field of required) {
+            if (!datos[field] || (Array.isArray(datos[field]) && datos[field].length === 0)) {
+                return { valido: false, error: `Campo obligatorio: ${field}` };
             }
-        });
-
-        // Generar recomendaciones personalizadas
-        kit.recommendations = this.generateRecommendations();
-        kit.summary = this.generateSummary(selectedRehabTypes);
-
-        return kit;
+        }
+        
+        return { valido: true };
     }
 
-    generateRecommendations() {
-        const recommendations = [];
-        const symptoms = this.answers[3] || [];
-        const intensity = this.answers[7];
-        const objective = this.answers[9];
-        const age = this.answers[10];
-        const range = this.answers[4];
+    sendToServer(datos) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:3000/api/respuestas', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
 
-        // Recomendaciones por síntomas
-        if (symptoms.includes("debilidad_muscular")) {
-            recommendations.push("🏋️ Realizar ejercicios de resistencia progresiva con las bandas elásticas (3-4 series de 10-15 repeticiones)");
-            recommendations.push("⏱️ Aumentar gradualmente la intensidad de los ejercicios cada 1-2 semanas");
-            recommendations.push("💪 Incluir descanso de 48 horas entre sesiones de fortalecimiento");
-        }
-
-        if (symptoms.includes("falta_coordinacion")) {
-            recommendations.push("🎯 Practicar ejercicios de coordinación mano-ojo diariamente (10-15 minutos)");
-            recommendations.push("⚖️ Trabajar equilibrio con la barra de equilibrio 5 veces a la semana");
-            recommendations.push("🧠 Realizar ejercicios de coordinación bilateral");
-        }
-
-        if (symptoms.includes("rigidez")) {
-            recommendations.push("🔥 Realizar estiramientos 5-10 minutos antes de cada sesión");
-            recommendations.push("🌡️ Aplicar calor local durante 15-20 minutos antes de iniciar ejercicios");
-            recommendations.push("💆 Combinar terapia manual con ejercicios activos");
-        }
-
-        if (symptoms.includes("falta_equilibrio")) {
-            recommendations.push("⚖️ Practicar ejercicios de equilibrio estático antes de dinámico");
-            recommendations.push("🧍 Aumentar progresivamente la complejidad de los ejercicios");
-            recommendations.push("🛡️ Realizar ejercicios con apoyo seguro para prevenir caídas");
-        }
-
-        // Recomendaciones por frecuencia de ejercicio
-        if (intensity === "no_realiza") {
-            recommendations.push("📅 IMPORTANTE: Comenzar con 2-3 sesiones por semana de 20-30 minutos");
-            recommendations.push("📈 Semana 1-2: Adaptación; Semana 3-4: Aumento de intensidad");
-            recommendations.push("🎯 Establecer horarios fijos para generar hábito");
-        } else if (intensity === "1_2_veces") {
-            recommendations.push("📅 Incrementar a 3-4 sesiones por semana para lograr resultados óptimos");
-            recommendations.push("⏰ Cada sesión debe durar mínimo 30-45 minutos");
-        } else if (intensity === "3_4_veces") {
-            recommendations.push("✅ Frecuencia adecuada; mantener esta consistencia");
-            recommendations.push("📊 Variar ejercicios cada 2-3 semanas para evitar meseta");
-        } else if (intensity === "5_mas_veces") {
-            recommendations.push("💯 Excelente consistencia; asegurar variedad en rutina");
-            recommendations.push("🔄 Integrar días de recuperación activa (yoga, estiramientos)");
-        }
-
-        // Recomendaciones por objetivo
-        if (objective === "recuperar_funcionalidad") {
-            recommendations.push("🎯 Enfoque en movimientos funcionales específicos a tu condición");
-            recommendations.push("📊 Registrar habilidades alcanzadas cada 2 semanas");
-        } else if (objective === "aumentar_fuerza") {
-            recommendations.push("💪 Usar resistencia progresiva; aumentar 10% cada 2 semanas");
-            recommendations.push("🥗 Asegurar ingesta adecuada de proteínas");
-        } else if (objective === "mejorar_coordinacion") {
-            recommendations.push("🎯 Practicar movimientos coordinados 5 veces por semana");
-            recommendations.push("🧠 Los primeros resultados aparecerán entre 2-4 semanas");
-        }
-
-        // Recomendaciones generales
-        recommendations.push("🧑‍⚕️ Consultar con tu terapeuta para ajustar el programa según progreso");
-        recommendations.push("📱 Descargar nuestra app para registrar ejercicios diarios");
-        recommendations.push("📊 Evaluar progreso cada 30 días con tu especialista");
-        recommendations.push("⚠️ Detener ejercicio inmediatamente si experimentas dolor agudo");
-
-        return recommendations;
-    }
-
-    generateSummary(types) {
-        const typeLabels = {
-            fisica: "Rehabilitación Física",
-            sensorial: "Estimulación Sensorial",
-            cognitiva: "Rehabilitación Cognitiva",
-            motriz: "Habilitación Motriz",
-            auditiva: "Habilitación Auditiva"
+        xhr.onload = () => {
+            if (xhr.status === 200 || xhr.status === 201) {
+                const response = JSON.parse(xhr.responseText);
+                this.displayResults(response);
+            } else {
+                this.displayError(xhr.status);
+            }
         };
 
-        const labels = types.map(t => typeLabels[t] || t).join(", ");
-        return `Tu kit personalizado incluye elementos para: ${labels}`;
+        xhr.onerror = () => {
+            this.displayError('conexión');
+        };
+
+        xhr.send(JSON.stringify(datos));
     }
 
-    getResultsHTML(kit) {
-        let html = `
+    displayResults(response) {
+        const html = `
             <div class="results-container animate__animated animate__fadeIn">
                 <div class="results-header">
                     <div class="results-badge">✓ EVALUACIÓN COMPLETADA</div>
                     <h2 class="results-title">Tu Kit Personalizado</h2>
                 </div>
-
                 <div class="results-content">
-                    <!-- RESUMEN RÁPIDO -->
                     <div class="quick-summary">
                         <div class="summary-item">
                             <span class="summary-icon">📋</span>
                             <div class="summary-text">
-                                <p class="summary-label">Tipos de Rehabilitación</p>
-                                <p class="summary-value">${this.getRehabTypes()}</p>
-                            </div>
-                        </div>
-                        <div class="summary-item">
-                            <span class="summary-icon">🎯</span>
-                            <div class="summary-text">
-                                <p class="summary-label">Objetivo Principal</p>
-                                <p class="summary-value">${this.getPrimaryObjective()}</p>
+                                <p class="summary-label">Registro guardado</p>
+                                <p class="summary-value">ID: ${response.id}</p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- COMPONENTES DEL KIT (SIMPLIFICADO) -->
                     <div class="kit-components-section">
                         <h3 class="section-title">📦 Tu Kit Incluye</h3>
                         <div class="components-grid">
         `;
 
-        kit.components.forEach(component => {
-            const iconMap = {
-                fisica: "🏋️",
-                sensorial: "👁️",
-                cognitiva: "🧠",
-                motriz: "🤲",
-                auditiva: "👂"
-            };
-            const icon = iconMap[component.type] || "📦";
-            
-            html += `
-                <div class="component-card-compact">
-                    <div class="component-icon-compact">${icon}</div>
-                    <h4 class="component-title-compact">${this.formatLabel(component.type)}</h4>
-                    <div class="items-compact">
-            `;
-
-            component.items.forEach((item) => {
-                html += `<div class="item-compact">• ${item.name} x${item.quantity}</div>`;
-            });
-
-            html += `
-                    </div>
-                </div>
-        `;
-        });        html += `
+        const types = this.answers[1] || [];
+        types.forEach(type => {
+            if (questionnaireData.kitComponents[type]) {
+                const component = questionnaireData.kitComponents[type];
+                html += `
+                    <div class="component-card-compact">
+                        <h4 class="component-title-compact">${this.formatLabel(type)}</h4>
+                        <div class="items-compact">
+                            ${component.items.map(item => `<div class="item-compact">• ${item.name} x${item.quantity}</div>`).join('')}
                         </div>
                     </div>
+                `;
+            }
+        });
 
-                    <!-- PLAN DE TRATAMIENTO COMPACTO -->
-                    <div class="treatment-summary">
-                        <h3 class="section-title">📅 Plan Recomendado</h3>
-                        <div class="treatment-row">
-                            <div class="treatment-item-compact">
-                                <span class="treatment-icon">⏰</span>
-                                <p class="treatment-compact">${this.getTreatmentFrequency()}</p>
-                            </div>
-                            <div class="treatment-item-compact">
-                                <span class="treatment-icon">⏱️</span>
-                                <p class="treatment-compact">${this.getSessionDuration()}</p>
-                            </div>
-                            <div class="treatment-item-compact">
-                                <span class="treatment-icon">📊</span>
-                                <p class="treatment-compact">${this.getProgramDuration()}</p>
-                            </div>
+        html += `
                         </div>
                     </div>
-
-                    <!-- KIT PRICING Y CTA -->
-                    <div class="pricing-section">
-                        <div class="pricing-card">
-                            <div class="pricing-badge">✓ RECOMENDADO PROFESIONALMENTE</div>
-                            <div class="pricing-content-compact">
-                                <h3 class="pricing-title">🎁 Tu Kit Personalizado</h3>
-                                <ul class="pricing-features-compact">
-                                    <li><span class="check-icon">✓</span> Todos los componentes personalizados</li>
-                                    <li><span class="check-icon">✓</span> 30+ videos HD de ejercicios</li>
-                                    <li><span class="check-icon">✓</span> Plan impreso personalizado</li>
-                                    <li><span class="check-icon">✓</span> Seguimiento 30 días</li>
-                                    <li><span class="check-icon">✓</span> App de progreso + Ajustes gratis</li>
-                                </ul>
-                                <div class="pricing-highlight">
-                                    <p class="highlight-text">Envío incluido a todo México</p>
-                                </div>
-                                <div class="pricing-amount">
-                                    <span class="price-label">Precio Final:</span>
-                                    <span class="price-value">$800 MXN</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- BOTONES DE ACCIÓN -->
                     <div class="action-buttons">
-                        <button class="btn btn-primary" id="purchaseBtn">
-                            <i class="fas fa-shopping-cart"></i> Comprar Kit Personalizado
-                        </button>
-                        <button class="btn btn-secondary" id="contactBtn">
-                            <i class="fas fa-phone"></i> Contactar Asesor
-                        </button>
-                        <button class="btn btn-outline" id="restartBtn">
+                        <button class="btn btn-primary" onclick="location.reload()">
                             <i class="fas fa-redo"></i> Nuevo Cuestionario
                         </button>
                     </div>
                 </div>
             </div>
         `;
-
-        return html;
+        this.containerEl.innerHTML = html;
     }
 
-    // Métodos auxiliares para extraer información
+    displayError(tipo) {
+        const mensaje = typeof tipo === 'string' ? tipo : (tipo === 'conexión' ? 'Error de conexión con el servidor' : `Error ${tipo}`);
+        this.containerEl.innerHTML = `
+            <div class="error-container">
+                <h2>Error al guardar datos</h2>
+                <p>${mensaje}</p>
+                <button class="btn btn-secondary" onclick="location.reload()">Reintentar</button>
+            </div>
+        `;
+    }
+
     formatLabel(text) {
         const labels = {
             fisica: "Rehabilitación Física",
@@ -607,182 +447,10 @@ class Questionnaire {
         };
         return labels[text] || text;
     }
-
-    getRehabTypes() {
-        const types = this.answers[1] || [];
-        if (types.length === 0) return "No especificado";
-        return types.map(t => this.formatLabel(t)).join(", ");
-    }
-
-    getAffectedAreas() {
-        const areas = this.answers[2] || [];
-        if (areas.length === 0) return "No especificado";
-        const labels = {
-            manos: "Manos y dedos",
-            brazos: "Brazos",
-            piernas: "Piernas",
-            pies: "Pies",
-            cuerpo_completo: "Cuerpo completo"
-        };
-        return areas.map(a => labels[a] || a).join(", ");
-    }
-
-    getPrimarySymptoms() {
-        const symptoms = this.answers[3] || [];
-        if (symptoms.length === 0) return "No especificado";
-        const labels = {
-            debilidad_muscular: "Debilidad muscular",
-            falta_coordinacion: "Falta de coordinación",
-            dolor: "Dolor o molestia",
-            perdida_sensibilidad: "Pérdida de sensibilidad",
-            rigidez: "Rigidez o espasticidad",
-            falta_equilibrio: "Falta de equilibrio"
-        };
-        return symptoms.slice(0, 3).map(s => labels[s] || s).join(", ");
-    }
-
-    getMovementRange() {
-        const range = this.answers[4];
-        const labels = {
-            muy_limitado: "Muy limitado",
-            limitado: "Limitado",
-            moderado: "Moderado",
-            bueno: "Bueno"
-        };
-        return labels[range] || "No especificado";
-    }
-
-    getTreatmentFrequency() {
-        const intensity = this.answers[7];
-        const labels = {
-            no_realiza: "3-4 sesiones por semana (recomendado para iniciar)",
-            "1_2_veces": "4-5 sesiones por semana",
-            "3_4_veces": "4-5 sesiones por semana (actual)",
-            "5_mas_veces": "5-6 sesiones por semana con días de recuperación"
-        };
-        return labels[intensity] || "3-4 sesiones por semana";
-    }
-
-    getSessionDuration() {
-        const intensity = this.answers[7];
-        return intensity === "no_realiza" ? "20-30 minutos (iniciantes)" : "30-45 minutos";
-    }
-
-    getProgramDuration() {
-        const duration = this.answers[6];
-        const labels = {
-            menos_1_mes: "Programa de 8-12 semanas desde ahora",
-            "1_3_meses": "Programa de 8-10 semanas de continuidad",
-            "3_6_meses": "Programa de 6-8 semanas de consolidación",
-            "mas_6_meses": "Programa de 4-6 semanas de especialización",
-            no_ha_iniciado: "Programa inicial de 12 semanas"
-        };
-        return labels[duration] || "8-12 semanas";
-    }
-
-    getPrimaryObjective() {
-        const objective = this.answers[9];
-        const labels = {
-            recuperar_funcionalidad: "Recuperar funcionalidad perdida",
-            mejorar_sensibilidad: "Mejorar sensibilidad y percepción",
-            aumentar_fuerza: "Aumentar fuerza y resistencia",
-            mejorar_coordinacion: "Mejorar coordinación y equilibrio",
-            mantener_capacidades: "Mantener capacidades actuales"
-        };
-        return labels[objective] || "Mejorar capacidades funcionales";
-    }
-
-    attachResultsEventListeners() {
-        const purchaseBtn = document.getElementById('purchaseBtn');
-        const restartBtn = document.getElementById('restartBtn');
-        const contactBtn = document.getElementById('contactBtn');
-
-        if (purchaseBtn) {
-            purchaseBtn.onclick = () => {
-                // Crear un modal profesional en lugar de alert
-                const modal = document.createElement('div');
-                modal.className = 'purchase-modal-overlay';
-                modal.innerHTML = `
-                    <div class="purchase-modal">
-                        <button class="modal-close" onclick="this.closest('.purchase-modal-overlay').remove()">✕</button>
-                        <div class="modal-icon">✓</div>
-                        <h2 class="modal-title">¡Evaluación Completada!</h2>
-                        <p class="modal-subtitle">Tu kit personalizado ha sido generado exitosamente</p>
-                        
-                        <div class="modal-info">
-                            <div class="info-item">
-                                <span class="info-icon">📦</span>
-                                <span class="info-text">Kit 100% personalizado según tus respuestas</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">📱</span>
-                                <span class="info-text">Seguimiento especializado por 30 días</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-icon">🎯</span>
-                                <span class="info-text">Garantía de satisfacción</span>
-                            </div>
-                        </div>
-                        
-                        <div class="modal-price">
-                            <p class="price-label">Precio del Kit:</p>
-                            <p class="price-amount">$800 MXN</p>
-                        </div>
-                        
-                        <p class="modal-description">
-                            Nuestro equipo se pondrá en contacto contigo en las próximas 24 horas para:
-                        </p>
-                        <ul class="modal-steps">
-                            <li>Confirmar los detalles de tu pedido</li>
-                            <li>Proporcionar opciones de pago seguras</li>
-                            <li>Coordinar el envío a tu domicilio</li>
-                            <li>Iniciar tu seguimiento personalizado</li>
-                        </ul>
-                        
-                        <div class="modal-actions">
-                            <button class="btn btn-primary" onclick="window.open('https://wa.me/526691163453?text=Hola%20quiero%20confirmar%20mi%20pedido%20del%20kit%20personalizado', '_blank'); this.closest('.purchase-modal-overlay').remove();">
-                                <i class="fas fa-whatsapp"></i> Confirmar por WhatsApp
-                            </button>
-                            <button class="btn btn-secondary" onclick="this.closest('.purchase-modal-overlay').remove();">
-                                Cerrar
-                            </button>
-                        </div>
-                        
-                        <p class="modal-note">
-                            <strong>⚠️ Nota importante:</strong> Recibirás un email en los próximos minutos con un resumen de tu evaluación y los pasos siguientes.
-                        </p>
-                    </div>
-                `;
-                document.body.appendChild(modal);
-            };
-        }
-
-        if (contactBtn) {
-            contactBtn.onclick = () => {
-                const message = encodeURIComponent('Hola, me gustaría asesoría sobre mi kit personalizado de rehabilitación. He completado el cuestionario de NeuroSense Kit.');
-                window.open(`https://wa.me/526691163453?text=${message}`, '_blank');
-            };
-        }
-
-        if (restartBtn) {
-            restartBtn.onclick = () => {
-                this.restart();
-            };
-        }
-    }
-
-    restart() {
-        this.currentQuestion = 0;
-        this.answers = {};
-        this.render();
-    }
 }
 
-// Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
     const cuestionario = new Questionnaire();
     cuestionario.initialize('cuestionario-container');
-    
-    // Guardar referencia global para acceso desde HTML
     window.cuestionario = cuestionario;
 });

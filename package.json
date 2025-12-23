@@ -1,0 +1,18 @@
+{
+  "name": "neurosensekit",
+  "version": "1.0.0",
+  "description": "Sistema de rehabilitación sensorial personalizada",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6",
+    "body-parser": "^1.20.2"
+  }
+}

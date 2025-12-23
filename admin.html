@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Admin - NeuroSense Kit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body class="bg-gray-100">
+
+<header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-blue-600">NeuroSense Kit - Panel Admin</h1>
+        <a href="index.html" class="text-blue-600 hover:text-blue-800">
+            <i class="fas fa-home mr-2"></i>Volver al inicio
+        </a>
+    </div>
+</header>
+
+<main class="container mx-auto px-4 py-8">
+    <div class="mb-8">
+        <h2 class="text-3xl font-bold mb-4">Respuestas del Cuestionario</h2>
+        <div class="flex gap-4">
+            <button id="refreshBtn" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                <i class="fas fa-sync-alt mr-2"></i>Actualizar
+            </button>
+            <button id="exportBtn" class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                <i class="fas fa-download mr-2"></i>Exportar CSV
+            </button>
+        </div>
+    </div>
+
+    <div id="loadingSpinner" class="text-center py-8">
+        <i class="fas fa-spinner fa-spin text-4xl text-blue-600"></i>
+        <p class="mt-2 text-gray-600">Cargando respuestas...</p>
+    </div>
+
+    <div id="responseContainer" class="hidden">
+        <div id="statsContainer" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow">
+                <p class="text-gray-600 text-sm font-semibold">Total de Respuestas</p>
+                <p class="text-3xl font-bold text-blue-600" id="totalCount">0</p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-200">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">ID</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Tipo Rehabilitación</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Edad</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Fecha</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="errorContainer" class="hidden bg-red-100 text-red-800 p-4 rounded-lg">
+        <p id="errorMessage"></p>
+    </div>
+</main>
+
+<div id="detailsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-2xl max-h-96 overflow-y-auto w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-2xl font-bold">Detalles de Respuesta</h3>
+            <button onclick="closeModal()" class="text-gray-600 hover:text-gray-900">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <div id="detailsContent" class="text-gray-700"></div>
+        <div class="mt-6 flex gap-2">
+            <button onclick="closeModal()" class="px-4 py-2 bg-gray-300 text-gray-900 rounded-lg hover:bg-gray-400">
+                Cerrar
+            </button>
+            <button id="deleteBtn" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
+                <i class="fas fa-trash mr-2"></i>Eliminar
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+const API_URL = 'http://localhost:3000/api/respuestas';
+let allResponses = [];
+let currentDetailId = null;
+
+async function loadResponses() {
+    const spinner = document.getElementById('loadingSpinner');
+    const container = document.getElementById('responseContainer');
+    const errorContainer = document.getElementById('errorContainer');
+    
+    spinner.classList.remove('hidden');
+    container.classList.add('hidden');
+    errorContainer.classList.add('hidden');
+
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error('Error al cargar datos');
+        
+        allResponses = await response.json();
+        displayResponses();
+        spinner.classList.add('hidden');
+        container.classList.remove('hidden');
+    } catch (error) {
+        spinner.classList.add('hidden');
+        errorContainer.classList.remove('hidden');
+        document.getElementById('errorMessage').textContent = `Error: ${error.message}`;
+    }
+}
+
+function displayResponses() {
+    const tableBody = document.getElementById('tableBody');
+    const totalCount = document.getElementById('totalCount');
+    
+    totalCount.textContent = allResponses.length;
+    tableBody.innerHTML = '';
+
+    allResponses.forEach(resp => {
+        const row = document.createElement('tr');
+        row.className = 'border-b hover:bg-gray-50';
+        
+        const fecha = new Date(resp.fecha).toLocaleString('es-MX');
+        const tipos = Array.isArray(resp.datos.tipo_rehabilitacion) 
+            ? resp.datos.tipo_rehabilitacion.join(', ') 
+            : resp.datos.tipo_rehabilitacion;
+        
+        row.innerHTML = `
+            <td class="px-6 py-4 text-sm">#${resp.id}</td>
+            <td class="px-6 py-4 text-sm">${tipos || 'N/A'}</td>
+            <td class="px-6 py-4 text-sm">${resp.datos.edad || 'N/A'}</td>
+            <td class="px-6 py-4 text-sm text-gray-600">${fecha}</td>
+            <td class="px-6 py-4 text-sm">
+                <button onclick="showDetails(${resp.id})" class="text-blue-600 hover:text-blue-800 mr-3">
+                    <i class="fas fa-eye"></i> Ver
+                </button>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+function showDetails(id) {
+    currentDetailId = id;
+    const resp = allResponses.find(r => r.id === id);
+    if (!resp) return;
+
+    const modal = document.getElementById('detailsModal');
+    const content = document.getElementById('detailsContent');
+    
+    let html = '<dl class="space-y-3">';
+    
+    for (const [key, value] of Object.entries(resp.datos)) {
+        const displayKey = key.replace(/_/g, ' ').toUpperCase();
+        const displayValue = Array.isArray(value) ? value.join(', ') : value || 'No especificado';
+        html += `
+            <div>
+                <dt class="font-semibold text-gray-900">${displayKey}</dt>
+                <dd class="text-gray-700 ml-4">${displayValue}</dd>
+            </div>
+        `;
+    }
+    
+    html += `
+        <div>
+            <dt class="font-semibold text-gray-900">FECHA</dt>
+            <dd class="text-gray-700 ml-4">${new Date(resp.fecha).toLocaleString('es-MX')}</dd>
+        </div>
+    </dl>`;
+    
+    content.innerHTML = html;
+    modal.classList.remove('hidden');
+}
+
+function closeModal() {
+    document.getElementById('detailsModal').classList.add('hidden');
+    currentDetailId = null;
+}
+
+async function deleteResponse() {
+    if (!currentDetailId || !confirm('¿Estás seguro de eliminar esta respuesta?')) return;
+
+    try {
+        const response = await fetch(`${API_URL}/${currentDetailId}`, { method: 'DELETE' });
+        if (!response.ok) throw new Error('Error al eliminar');
+        
+        closeModal();
+        loadResponses();
+    } catch (error) {
+        alert(`Error: ${error.message}`);
+    }
+}
+
+function exportToCSV() {
+    if (allResponses.length === 0) {
+        alert('No hay respuestas para exportar');
+        return;
+    }
+
+    let csv = 'ID,Tipo Rehabilitación,Área Afectada,Síntomas,Rango Movimiento,Objetivo,Edad,Fecha\n';
+    
+    allResponses.forEach(resp => {
+        const tipos = Array.isArray(resp.datos.tipo_rehabilitacion) 
+            ? resp.datos.tipo_rehabilitacion.join(';') 
+            : resp.datos.tipo_rehabilitacion;
+        const areas = Array.isArray(resp.datos.area_afectada) 
+            ? resp.datos.area_afectada.join(';') 
+            : resp.datos.area_afectada;
+        const sintomas = Array.isArray(resp.datos.sintomas) 
+            ? resp.datos.sintomas.join(';') 
+            : resp.datos.sintomas;
+        
+        csv += `"${resp.id}","${tipos}","${areas}","${sintomas}","${resp.datos.rango_movimiento}","${resp.datos.objetivos}","${resp.datos.edad}","${new Date(resp.fecha).toLocaleString('es-MX')}"\n`;
+    });
+
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `respuestas_${new Date().toISOString().split('T')[0]}.csv`;
+    a.click();
+    window.URL.revokeObjectURL(url);
+}
+
+document.getElementById('refreshBtn').addEventListener('click', loadResponses);
+document.getElementById('exportBtn').addEventListener('click', exportToCSV);
+document.getElementById('deleteBtn').addEventListener('click', deleteResponse);
+
+loadResponses();
+</script>
+
+</body>
+</html>
