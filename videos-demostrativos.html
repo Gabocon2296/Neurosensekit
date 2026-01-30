@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Videos Demostrativos - NeuroSenseKit</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/icono.ico"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-white text-gray-800">
+
+<!-- HEADER -->
+<header class="w-full sticky top-0 z-50 bg-white shadow-sm">
+    <div class="container mx-auto flex justify-between items-center px-4 py-4">
+        <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                <i class="fas fa-brain text-white text-lg"></i>
+            </div>
+            <h1 class="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">NeuroSenseKit</h1>
+        </a>
+        <nav class="space-x-8 hidden lg:flex items-center">
+            <a href="index.html#inicio" class="text-gray-700 hover:text-blue-600 transition font-medium">Inicio</a>
+            <a href="index.html#caracteristicas" class="text-gray-700 hover:text-blue-600 transition font-medium">¿Cómo funciona?</a>
+            <a href="index.html#incluye" class="text-gray-700 hover:text-blue-600 transition font-medium">Qué incluye</a>
+            <a href="index.html#testimonios" class="text-gray-700 hover:text-blue-600 transition font-medium">Testimonios</a>
+        </nav>
+        <a href="cuestionario.html" class="hidden lg:inline-block px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition duration-300">
+            Crear mi Kit
+        </a>
+        <button class="lg:hidden text-gray-700 hover:text-blue-600 transition">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+    </div>
+</header>
+
+<!-- HERO SECTION VIDEOS -->
+<section class="container mx-auto px-4 py-12 md:py-20">
+    <div class="text-center mb-12 md:mb-20 animate__animated animate__fadeInDown">
+        <div class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-xs sm:text-sm font-semibold mb-6">
+            <i class="fas fa-video mr-2"></i>Videos Demostrativos Profesionales
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
+            Mira cómo funciona la <span class="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Rehabilitación Neurológica</span>
+        </h2>
+        <p class="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
+            Observa casos reales de terapia y protocolos profesionales para cada patología neurológica
+        </p>
+    </div>
+
+    <!-- GRID DE VIDEOS -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
+        <!-- VIDEO 1: ACV -->
+        <div class="group animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
+            <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-gradient-to-br from-red-50 to-white border-2 border-red-200">
+                <div class="relative h-48 md:h-56 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center group-hover:scale-110 transition duration-300">
+                    <i class="fas fa-play text-white text-5xl opacity-80 group-hover:opacity-100 transition"></i>
+                </div>
+                <div class="p-5 md:p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-red-600 text-lg"></i>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900">ACV</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Accidente Cerebrovascular - Rehabilitación Post-ACV</p>
+                    <div class="flex items-center justify-between mb-4 pb-4 border-b border-red-100">
+                        <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>12:45 min</span>
+                        <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded">En vivo</span>
+                    </div>
+                    <button onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ', 'ACV - Rehabilitación Post-ACV')" class="w-full px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
+                        <i class="fas fa-play mr-2"></i>Ver Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIDEO 2: PARKINSON -->
+        <div class="group animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+            <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-gradient-to-br from-purple-50 to-white border-2 border-purple-200">
+                <div class="relative h-48 md:h-56 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center group-hover:scale-110 transition duration-300">
+                    <i class="fas fa-play text-white text-5xl opacity-80 group-hover:opacity-100 transition"></i>
+                </div>
+                <div class="p-5 md:p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-hand-fist text-purple-600 text-lg"></i>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900">Parkinson</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Enfermedad de Parkinson - Terapia de Marcha</p>
+                    <div class="flex items-center justify-between mb-4 pb-4 border-b border-purple-100">
+                        <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>18:30 min</span>
+                        <span class="text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded">Grabado</span>
+                    </div>
+                    <button onclick="openVideoModal('https://www.youtube.com/embed/9bZkp7q19f0', 'Parkinson - Terapia de Marcha')" class="w-full px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
+                        <i class="fas fa-play mr-2"></i>Ver Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIDEO 3: LESIÓN MEDULAR -->
+        <div class="group animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+            <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-gradient-to-br from-green-50 to-white border-2 border-green-200">
+                <div class="relative h-48 md:h-56 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center group-hover:scale-110 transition duration-300">
+                    <i class="fas fa-play text-white text-5xl opacity-80 group-hover:opacity-100 transition"></i>
+                </div>
+                <div class="p-5 md:p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-wheelchair text-green-600 text-lg"></i>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900">Lesión Medular</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Rehabilitación - Recuperación Motora</p>
+                    <div class="flex items-center justify-between mb-4 pb-4 border-b border-green-100">
+                        <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>15:20 min</span>
+                        <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">Grabado</span>
+                    </div>
+                    <button onclick="openVideoModal('https://www.youtube.com/embed/jNQXAC9IVRw', 'Lesión Medular - Recuperación Motora')" class="w-full px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
+                        <i class="fas fa-play mr-2"></i>Ver Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIDEO 4: TCE -->
+        <div class="group animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+            <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-gradient-to-br from-orange-50 to-white border-2 border-orange-200">
+                <div class="relative h-48 md:h-56 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center group-hover:scale-110 transition duration-300">
+                    <i class="fas fa-play text-white text-5xl opacity-80 group-hover:opacity-100 transition"></i>
+                </div>
+                <div class="p-5 md:p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-brain text-orange-600 text-lg"></i>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900">TCE</h3>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Traumatismo Craneoencefálico - Rehabilitación Cognitiva</p>
+                    <div class="flex items-center justify-between mb-4 pb-4 border-b border-orange-100">
+                        <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>20:10 min</span>
+                        <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded">Tutorial</span>
+                    </div>
+                    <button onclick="openVideoModal('https://www.youtube.com/embed/M7lc1BCxL00', 'TCE - Rehabilitación Cognitiva')" class="w-full px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
+                        <i class="fas fa-play mr-2"></i>Ver Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA FINAL -->
+    <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-8 md:p-12 border-2 border-blue-200 text-center">
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">¿Visto? Ahora es tu turno</h3>
+        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Recibe un kit personalizado diseñado especialmente para tu caso neurológico</p>
+        <a href="cuestionario.html" class="inline-block px-8 py-3 md:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition duration-300 text-lg">
+            <i class="fas fa-stethoscope mr-2"></i>Comenzar Evaluación
+        </a>
+    </div>
+</section>
+
+<!-- MODAL VIDEO -->
+<div id="videoModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full animate__animated animate__fadeIn">
+        <div class="flex justify-between items-center p-6 border-b border-gray-200">
+            <h3 id="modalTitle" class="text-xl md:text-2xl font-bold text-gray-900"></h3>
+            <button onclick="closeVideoModal()" class="text-gray-500 hover:text-gray-700 transition">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <div class="p-6">
+            <div class="relative bg-black rounded-lg overflow-hidden" style="padding-bottom: 56.25%;">
+                <iframe 
+                    id="videoFrame"
+                    class="absolute top-0 left-0 w-full h-full border-none rounded-lg"
+                    src="" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contacto" class="bg-gradient-to-b from-gray-900 to-gray-950 text-white py-20 mt-20">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 mb-8 md:mb-12">
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                        <i class="fas fa-brain text-white"></i>
+                    </div>
+                    <h4 class="text-xl font-bold">NeuroSenseKit</h4>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed">Rehabilitación neurológica profesional personalizada.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-5">Enlaces</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="index.html#inicio" class="hover:text-yellow-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-sm"></i>Inicio</a></li>
+                    <li><a href="index.html#caracteristicas" class="hover:text-yellow-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-sm"></i>¿Cómo funciona?</a></li>
+                    <li><a href="index.html#incluye" class="hover:text-yellow-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-sm"></i>Qué incluye</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-5">Contacto</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li><a href="mailto:info@neurosensekit.mx" class="hover:text-yellow-400 transition flex items-center gap-3"><i class="fas fa-envelope text-base"></i>info@neurosensekit.mx</a></li>
+                    <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-base"></i>Ciudad de México, México</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-5">Síguenos</h4>
+                <div class="flex gap-4">
+                    <a href="#" onclick="return false;" class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center hover:from-blue-500 hover:to-blue-600 transition duration-300">
+                        <i class="fab fa-facebook-f text-lg"></i>
+                    </a>
+                    <a href="#" onclick="return false;" class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center hover:from-blue-300 hover:to-blue-400 transition duration-300">
+                        <i class="fab fa-twitter text-lg"></i>
+                    </a>
+                    <a href="#" onclick="return false;" class="w-12 h-12 bg-gradient-to-br from-pink-600 to-red-600 rounded-full flex items-center justify-center hover:from-pink-500 hover:to-red-500 transition duration-300">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 NeuroSenseKit. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function openVideoModal(videoUrl, title) {
+        document.getElementById('videoFrame').src = videoUrl;
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('videoModal').classList.remove('hidden');
+    }
+
+    function closeVideoModal() {
+        document.getElementById('videoFrame').src = '';
+        document.getElementById('videoModal').classList.add('hidden');
+    }
+
+    // Cerrar modal al hacer clic en el fondo
+    document.getElementById('videoModal')?.addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeVideoModal();
+        }
+    });
+</script>
+
+</body>
+</html>
