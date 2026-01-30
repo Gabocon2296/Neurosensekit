@@ -52,8 +52,8 @@
 
     <!-- GRID DE VIDEOS -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
-        <!-- VIDEO 1: ACV -->
-        <div class="group animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
+        <!-- VIDEO 1: PRESIÓN PALMAR -->
+        <div class="group animate__animated animate__fadeInUp animate-on-scroll" style="animation-delay: 0.1s">
             <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-gradient-to-br from-red-50 to-white border-2 border-red-200">
                 <div class="relative h-48 md:h-56 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center group-hover:scale-110 transition duration-300">
                     <i class="fas fa-play text-white text-5xl opacity-80 group-hover:opacity-100 transition"></i>
@@ -61,24 +61,29 @@
                 <div class="p-5 md:p-6">
                     <div class="flex items-center gap-2 mb-3">
                         <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-                            <i class="fas fa-heart text-red-600 text-lg"></i>
+                            <i class="fas fa-hand-fist text-red-600 text-lg"></i>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-gray-900">ACV</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900">Presión Palmar</h3>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">Accidente Cerebrovascular - Rehabilitación Post-ACV</p>
+                    <p class="text-sm text-gray-600 mb-3">Presión de pelota y almohada - Fortalecimiento de mano</p>
                     <div class="flex items-center justify-between mb-4 pb-4 border-b border-red-100">
-                        <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>12:45 min</span>
-                        <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded">En vivo</span>
+                        <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>08 segundos</span>
+                        <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded">Básico</span>
                     </div>
-                    <button onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ', 'ACV - Rehabilitación Post-ACV')" class="w-full px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
-                        <i class="fas fa-play mr-2"></i>Ver Demo
-                    </button>
+                    <div class="flex gap-2">
+                        <button onclick="openVideoModal('vid/pelota.mp4', 'Presión Palmar - Ejercicio de Fortalecimiento')" class="flex-1 px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
+                            <i class="fas fa-play mr-2"></i>Ver
+                        </button>
+                        <a href="vid/pelota.mp4" download class="flex-1 px-4 py-2 bg-gray-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-center">
+                            <i class="fas fa-download mr-2"></i>Descargar
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- VIDEO 2: PARKINSON -->
-        <div class="group animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+        <!-- VIDEO 2: MOTRICIDAD FINA -->
+        <div class="group animate__animated animate__fadeInUp animate-on-scroll" style="animation-delay: 0.2s">
             <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-gradient-to-br from-purple-50 to-white border-2 border-purple-200">
                 <div class="relative h-48 md:h-56 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center group-hover:scale-110 transition duration-300">
                     <i class="fas fa-play text-white text-5xl opacity-80 group-hover:opacity-100 transition"></i>
@@ -86,24 +91,29 @@
                 <div class="p-5 md:p-6">
                     <div class="flex items-center gap-2 mb-3">
                         <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-                            <i class="fas fa-hand-fist text-purple-600 text-lg"></i>
+                            <i class="fas fa-hand text-purple-600 text-lg"></i>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-gray-900">Parkinson</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900">Motricidad Fina</h3>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">Enfermedad de Parkinson - Terapia de Marcha</p>
+                    <p class="text-sm text-gray-600 mb-3">Separar y juntar dedos - Coordinación y flexibilidad</p>
                     <div class="flex items-center justify-between mb-4 pb-4 border-b border-purple-100">
-                        <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>18:30 min</span>
-                        <span class="text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded">Grabado</span>
+                        <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>12 segundos</span>
+                        <span class="text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded">Intermedio</span>
                     </div>
-                    <button onclick="openVideoModal('https://www.youtube.com/embed/9bZkp7q19f0', 'Parkinson - Terapia de Marcha')" class="w-full px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
-                        <i class="fas fa-play mr-2"></i>Ver Demo
-                    </button>
+                    <div class="flex gap-2">
+                        <button onclick="openVideoModal('vid/flexibilidad.mp4', 'Motricidad Fina - Ejercicio de Coordinación')" class="flex-1 px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
+                            <i class="fas fa-play mr-2"></i>Ver
+                        </button>
+                        <a href="vid/flexibilidad.mp4" download class="flex-1 px-4 py-2 bg-gray-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-center">
+                            <i class="fas fa-download mr-2"></i>Descargar
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- VIDEO 3: LESIÓN MEDULAR -->
-        <div class="group animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+        <!-- VIDEO 3: EQUILIBRIO -->
+        <div class="group animate__animated animate__fadeInUp animate-on-scroll" style="animation-delay: 0.3s">
             <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-gradient-to-br from-green-50 to-white border-2 border-green-200">
                 <div class="relative h-48 md:h-56 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center group-hover:scale-110 transition duration-300">
                     <i class="fas fa-play text-white text-5xl opacity-80 group-hover:opacity-100 transition"></i>
@@ -111,24 +121,29 @@
                 <div class="p-5 md:p-6">
                     <div class="flex items-center gap-2 mb-3">
                         <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                            <i class="fas fa-wheelchair text-green-600 text-lg"></i>
+                            <i class="fas fa-person text-green-600 text-lg"></i>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-gray-900">Lesión Medular</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900">Movilidad</h3>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">Rehabilitación - Recuperación Motora</p>
+                    <p class="text-sm text-gray-600 mb-3">Levantar pierna - Estabilidad y postura</p>
                     <div class="flex items-center justify-between mb-4 pb-4 border-b border-green-100">
-                        <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>15:20 min</span>
-                        <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">Grabado</span>
+                        <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>10 segundos</span>
+                        <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">Intermedio</span>
                     </div>
-                    <button onclick="openVideoModal('https://www.youtube.com/embed/jNQXAC9IVRw', 'Lesión Medular - Recuperación Motora')" class="w-full px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
-                        <i class="fas fa-play mr-2"></i>Ver Demo
-                    </button>
+                    <div class="flex gap-2">
+                        <button onclick="openVideoModal('vid/movilidad.mp4', 'Movilidad - Ejercicio de Estabilidad')" class="flex-1 px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
+                            <i class="fas fa-play mr-2"></i>Ver
+                        </button>
+                        <a href="vid/movilidad.mp4" download class="flex-1 px-4 py-2 bg-gray-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-center">
+                            <i class="fas fa-download mr-2"></i>Descargar
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- VIDEO 4: TCE -->
-        <div class="group animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+        <!-- VIDEO 4: ESTIRAMIENTO -->
+        <div class="group animate__animated animate__fadeInUp animate-on-scroll" style="animation-delay: 0.4s">
             <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-gradient-to-br from-orange-50 to-white border-2 border-orange-200">
                 <div class="relative h-48 md:h-56 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center group-hover:scale-110 transition duration-300">
                     <i class="fas fa-play text-white text-5xl opacity-80 group-hover:opacity-100 transition"></i>
@@ -136,18 +151,23 @@
                 <div class="p-5 md:p-6">
                     <div class="flex items-center gap-2 mb-3">
                         <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                            <i class="fas fa-brain text-orange-600 text-lg"></i>
+                            <i class="fas fa-person-hiking text-orange-600 text-lg"></i>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-gray-900">TCE</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900">Parkinsón</h3>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">Traumatismo Craneoencefálico - Rehabilitación Cognitiva</p>
+                    <p class="text-sm text-gray-600 mb-3">Terapia especializada - Sintomatología Parkinson</p>
                     <div class="flex items-center justify-between mb-4 pb-4 border-b border-orange-100">
-                        <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>20:10 min</span>
-                        <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded">Tutorial</span>
+                        <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>15 segundos</span>
+                        <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded">Avanzado</span>
                     </div>
-                    <button onclick="openVideoModal('https://www.youtube.com/embed/M7lc1BCxL00', 'TCE - Rehabilitación Cognitiva')" class="w-full px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
-                        <i class="fas fa-play mr-2"></i>Ver Demo
-                    </button>
+                    <div class="flex gap-2">
+                        <button onclick="openVideoModal('vid/park.mp4', 'Parkinsón - Terapia Especializada')" class="flex-1 px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
+                            <i class="fas fa-play mr-2"></i>Ver
+                        </button>
+                        <a href="vid/park.mp4" download class="flex-1 px-4 py-2 bg-gray-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-center">
+                            <i class="fas fa-download mr-2"></i>Descargar
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -173,15 +193,7 @@
             </button>
         </div>
         <div class="p-6">
-            <div class="relative bg-black rounded-lg overflow-hidden" style="padding-bottom: 56.25%;">
-                <iframe 
-                    id="videoFrame"
-                    class="absolute top-0 left-0 w-full h-full border-none rounded-lg"
-                    src="" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
+            <div id="videoFrame" class="relative bg-black rounded-lg overflow-hidden" style="padding-bottom: 56.25%;">
             </div>
         </div>
     </div>
@@ -238,13 +250,37 @@
 
 <script>
     function openVideoModal(videoUrl, title) {
-        document.getElementById('videoFrame').src = videoUrl;
+        const videoFrame = document.getElementById('videoFrame');
+        
+        // Si es un video local, usar <video>, si es embed de YouTube usar <iframe>
+        if (videoUrl.startsWith('vid/')) {
+            // Video local
+            videoFrame.innerHTML = `
+                <video class="absolute top-0 left-0 w-full h-full" controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                    <source src="${videoUrl}" type="video/mp4">
+                    Tu navegador no soporta videos HTML5.
+                </video>
+            `;
+        } else {
+            // YouTube embed
+            videoFrame.innerHTML = `
+                <iframe 
+                    class="absolute top-0 left-0 w-full h-full border-none rounded-lg"
+                    src="${videoUrl}" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            `;
+        }
+        
         document.getElementById('modalTitle').textContent = title;
         document.getElementById('videoModal').classList.remove('hidden');
     }
 
     function closeVideoModal() {
-        document.getElementById('videoFrame').src = '';
+        const videoFrame = document.getElementById('videoFrame');
+        videoFrame.innerHTML = '';
         document.getElementById('videoModal').classList.add('hidden');
     }
 
@@ -253,6 +289,24 @@
         if (e.target === this) {
             closeVideoModal();
         }
+    });
+
+    // Scroll Animation Script
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
     });
 </script>
 
