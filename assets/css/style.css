@@ -57,6 +57,22 @@ body {
     transform: translateY(0);
 }
 
+/* Fallback: mostrar elementos aunque JavaScript falle */
+@supports not (opacity: 0) {
+    .animate-on-scroll {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación automática con animation en lugar de JavaScript si es necesario */
+@media (prefers-reduced-motion: no-preference) {
+    .animate-on-scroll {
+        animation: fadeInUp 0.8s ease-out forwards;
+        animation-fill-mode: both;
+    }
+}
+
 @keyframes slideInRight {
     from {
         opacity: 0;

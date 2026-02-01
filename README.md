@@ -302,7 +302,7 @@ simulateDownload(videoId, quality)
 ```
 📱 Teléfono: (555) 123-4567
 📧 Email: info@neurosensekit.mx
-📍 Ciudad de México, México
+📍 Mazatlán, Sinaloa
 ```
 
 ---
