@@ -55,7 +55,7 @@
         <!-- VIDEO 1: PRESIÓN PALMAR -->
         <div class="group animate__animated animate__fadeInUp animate-on-scroll" style="animation-delay: 0.1s">
             <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-white border-2 border-red-200">
-                <div class="relative h-48 md:h-56 bg-gray-200 flex items-center justify-center overflow-hidden group-hover:scale-110 transition duration-300">
+                <div class="relative h-48 md:h-56 bg-gray-200 flex items-center justify-center overflow-hidden group-hover:scale-110 transition duration-300 cursor-pointer" onclick="openVideoModal('vid/pelota.mp4', 'Presión Palmar - Ejercicio de Fortalecimiento')">
                     <img src="miniaturas/pelota.png" alt="Presión Palmar" class="w-full h-full object-cover"/>
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-30 transition">
                         <i class="fas fa-play text-white text-5xl opacity-90 group-hover:opacity-100 transition"></i>
@@ -88,7 +88,7 @@
         <!-- VIDEO 2: MOTRICIDAD FINA / FLEXIBILIDAD -->
         <div class="group animate__animated animate__fadeInUp animate-on-scroll" style="animation-delay: 0.2s">
             <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-white border-2 border-purple-200">
-                <div class="relative h-48 md:h-56 bg-gray-200 flex items-center justify-center overflow-hidden group-hover:scale-110 transition duration-300">
+                <div class="relative h-48 md:h-56 bg-gray-200 flex items-center justify-center overflow-hidden group-hover:scale-110 transition duration-300 cursor-pointer" onclick="openVideoModal('vid/flexibilidad.mp4', 'Flexibilidad - Ejercicio de Amplitud de Movimiento')">
                     <img src="miniaturas/flexibilidad.png" alt="Flexibilidad" class="w-full h-full object-cover"/>
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-30 transition">
                         <i class="fas fa-play text-white text-5xl opacity-90 group-hover:opacity-100 transition"></i>
@@ -118,11 +118,11 @@
             </div>
         </div>
 
-        <!-- VIDEO 3: MOVILIDAD -->
+        <!-- VIDEO 3: COORDINACIÓN Y EQUILIBRIO -->
         <div class="group animate__animated animate__fadeInUp animate-on-scroll" style="animation-delay: 0.3s">
             <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-white border-2 border-green-200">
-                <div class="relative h-48 md:h-56 bg-gray-200 flex items-center justify-center overflow-hidden group-hover:scale-110 transition duration-300">
-                    <img src="miniaturas/movilidad.png" alt="Movilidad" class="w-full h-full object-cover"/>
+                <div class="relative h-48 md:h-56 bg-gray-200 flex items-center justify-center overflow-hidden group-hover:scale-110 transition duration-300 cursor-pointer" onclick="openVideoModal('vid/movilidad.mp4', 'Coordinación y Equilibrio - Ejercicio Avanzado')">
+                    <img src="miniaturas/movilidad2.png" alt="Coordinación y Equilibrio" class="w-full h-full object-cover"/>
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-30 transition">
                         <i class="fas fa-play text-white text-5xl opacity-90 group-hover:opacity-100 transition"></i>
                     </div>
@@ -132,15 +132,15 @@
                         <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
                             <i class="fas fa-person text-green-600 text-lg"></i>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-gray-900">Movilidad</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900">Coordinación y Equilibrio</h3>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">Levantamiento de piernas - Estabilidad y fortalecimiento</p>
+                    <p class="text-sm text-gray-600 mb-3">Ejercicios posturales - Estabilidad corporal y control vestibular</p>
                     <div class="flex items-center justify-between mb-4 pb-4 border-b border-green-100">
                         <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>10 segundos</span>
                         <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full font-semibold">Intermedio</span>
                     </div>
                     <div class="flex gap-2">
-                        <button onclick="openVideoModal('vid/movilidad.mp4', 'Movilidad - Ejercicio de Estabilidad')" class="flex-1 px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-sm">
+                        <button onclick="openVideoModal('vid/movilidad.mp4', 'Coordinación y Equilibrio - Ejercicio Avanzado')" class="flex-1 px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-sm">
                             <i class="fas fa-play mr-2"></i>Ver
                         </button>
                         <a href="vid/movilidad.mp4" download class="flex-1 px-4 py-2 bg-gray-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-center text-sm">
@@ -154,7 +154,7 @@
         <!-- VIDEO 4: PARKINSON -->
         <div class="group animate__animated animate__fadeInUp animate-on-scroll" style="animation-delay: 0.4s">
             <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-white border-2 border-orange-200">
-                <div class="relative h-48 md:h-56 bg-gray-200 flex items-center justify-center overflow-hidden group-hover:scale-110 transition duration-300">
+                <div class="relative h-48 md:h-56 bg-gray-200 flex items-center justify-center overflow-hidden group-hover:scale-110 transition duration-300 cursor-pointer" onclick="openVideoModal('vid/parkinson.mp4', 'Parkinson - Terapia Especializada')">
                     <img src="miniaturas/parkinson.png" alt="Terapia Parkinson" class="w-full h-full object-cover"/>
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-30 transition">
                         <i class="fas fa-play text-white text-5xl opacity-90 group-hover:opacity-100 transition"></i>
