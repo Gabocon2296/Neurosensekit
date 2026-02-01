@@ -54,9 +54,12 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
         <!-- VIDEO 1: PRESIÓN PALMAR -->
         <div class="group animate__animated animate__fadeInUp animate-on-scroll" style="animation-delay: 0.1s">
-            <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-gradient-to-br from-red-50 to-white border-2 border-red-200">
-                <div class="relative h-48 md:h-56 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center group-hover:scale-110 transition duration-300">
-                    <i class="fas fa-play text-white text-5xl opacity-80 group-hover:opacity-100 transition"></i>
+            <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-white border-2 border-red-200">
+                <div class="relative h-48 md:h-56 bg-gray-200 flex items-center justify-center overflow-hidden group-hover:scale-110 transition duration-300">
+                    <img src="miniaturas/pelota.png" alt="Presión Palmar" class="w-full h-full object-cover"/>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-30 transition">
+                        <i class="fas fa-play text-white text-5xl opacity-90 group-hover:opacity-100 transition"></i>
+                    </div>
                 </div>
                 <div class="p-5 md:p-6">
                     <div class="flex items-center gap-2 mb-3">
@@ -68,13 +71,13 @@
                     <p class="text-sm text-gray-600 mb-3">Presión de pelota y almohada - Fortalecimiento de mano</p>
                     <div class="flex items-center justify-between mb-4 pb-4 border-b border-red-100">
                         <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>08 segundos</span>
-                        <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded">Básico</span>
+                        <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded-full font-semibold">Básico</span>
                     </div>
                     <div class="flex gap-2">
-                        <button onclick="openVideoModal('vid/pelota.mp4', 'Presión Palmar - Ejercicio de Fortalecimiento')" class="flex-1 px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
+                        <button onclick="openVideoModal('vid/pelota.mp4', 'Presión Palmar - Ejercicio de Fortalecimiento')" class="flex-1 px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-sm">
                             <i class="fas fa-play mr-2"></i>Ver
                         </button>
-                        <a href="vid/pelota.mp4" download class="flex-1 px-4 py-2 bg-gray-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-center">
+                        <a href="vid/pelota.mp4" download class="flex-1 px-4 py-2 bg-gray-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-center text-sm">
                             <i class="fas fa-download mr-2"></i>Descargar
                         </a>
                     </div>
@@ -82,29 +85,32 @@
             </div>
         </div>
 
-        <!-- VIDEO 2: MOTRICIDAD FINA -->
+        <!-- VIDEO 2: MOTRICIDAD FINA / FLEXIBILIDAD -->
         <div class="group animate__animated animate__fadeInUp animate-on-scroll" style="animation-delay: 0.2s">
-            <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-gradient-to-br from-purple-50 to-white border-2 border-purple-200">
-                <div class="relative h-48 md:h-56 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center group-hover:scale-110 transition duration-300">
-                    <i class="fas fa-play text-white text-5xl opacity-80 group-hover:opacity-100 transition"></i>
+            <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-white border-2 border-purple-200">
+                <div class="relative h-48 md:h-56 bg-gray-200 flex items-center justify-center overflow-hidden group-hover:scale-110 transition duration-300">
+                    <img src="miniaturas/flexibilidad.png" alt="Flexibilidad" class="w-full h-full object-cover"/>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-30 transition">
+                        <i class="fas fa-play text-white text-5xl opacity-90 group-hover:opacity-100 transition"></i>
+                    </div>
                 </div>
                 <div class="p-5 md:p-6">
                     <div class="flex items-center gap-2 mb-3">
                         <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
                             <i class="fas fa-hand text-purple-600 text-lg"></i>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-gray-900">Motricidad Fina</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900">Flexibilidad</h3>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">Separar y juntar dedos - Coordinación y flexibilidad</p>
+                    <p class="text-sm text-gray-600 mb-3">Movimientos de dedos - Coordinación y amplitud de movimiento</p>
                     <div class="flex items-center justify-between mb-4 pb-4 border-b border-purple-100">
                         <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>12 segundos</span>
-                        <span class="text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded">Intermedio</span>
+                        <span class="text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded-full font-semibold">Intermedio</span>
                     </div>
                     <div class="flex gap-2">
-                        <button onclick="openVideoModal('vid/flexibilidad.mp4', 'Motricidad Fina - Ejercicio de Coordinación')" class="flex-1 px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
+                        <button onclick="openVideoModal('vid/flexibilidad.mp4', 'Flexibilidad - Ejercicio de Amplitud de Movimiento')" class="flex-1 px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-sm">
                             <i class="fas fa-play mr-2"></i>Ver
                         </button>
-                        <a href="vid/flexibilidad.mp4" download class="flex-1 px-4 py-2 bg-gray-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-center">
+                        <a href="vid/flexibilidad.mp4" download class="flex-1 px-4 py-2 bg-gray-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-center text-sm">
                             <i class="fas fa-download mr-2"></i>Descargar
                         </a>
                     </div>
@@ -112,11 +118,14 @@
             </div>
         </div>
 
-        <!-- VIDEO 3: EQUILIBRIO -->
+        <!-- VIDEO 3: MOVILIDAD -->
         <div class="group animate__animated animate__fadeInUp animate-on-scroll" style="animation-delay: 0.3s">
-            <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-gradient-to-br from-green-50 to-white border-2 border-green-200">
-                <div class="relative h-48 md:h-56 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center group-hover:scale-110 transition duration-300">
-                    <i class="fas fa-play text-white text-5xl opacity-80 group-hover:opacity-100 transition"></i>
+            <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-white border-2 border-green-200">
+                <div class="relative h-48 md:h-56 bg-gray-200 flex items-center justify-center overflow-hidden group-hover:scale-110 transition duration-300">
+                    <img src="miniaturas/movilidad.png" alt="Movilidad" class="w-full h-full object-cover"/>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-30 transition">
+                        <i class="fas fa-play text-white text-5xl opacity-90 group-hover:opacity-100 transition"></i>
+                    </div>
                 </div>
                 <div class="p-5 md:p-6">
                     <div class="flex items-center gap-2 mb-3">
@@ -125,16 +134,16 @@
                         </div>
                         <h3 class="text-lg md:text-xl font-bold text-gray-900">Movilidad</h3>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">Levantar pierna - Estabilidad y postura</p>
+                    <p class="text-sm text-gray-600 mb-3">Levantamiento de piernas - Estabilidad y fortalecimiento</p>
                     <div class="flex items-center justify-between mb-4 pb-4 border-b border-green-100">
                         <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>10 segundos</span>
-                        <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">Intermedio</span>
+                        <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full font-semibold">Intermedio</span>
                     </div>
                     <div class="flex gap-2">
-                        <button onclick="openVideoModal('vid/movilidad.mp4', 'Movilidad - Ejercicio de Estabilidad')" class="flex-1 px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
+                        <button onclick="openVideoModal('vid/movilidad.mp4', 'Movilidad - Ejercicio de Estabilidad')" class="flex-1 px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-sm">
                             <i class="fas fa-play mr-2"></i>Ver
                         </button>
-                        <a href="vid/movilidad.mp4" download class="flex-1 px-4 py-2 bg-gray-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-center">
+                        <a href="vid/movilidad.mp4" download class="flex-1 px-4 py-2 bg-gray-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-center text-sm">
                             <i class="fas fa-download mr-2"></i>Descargar
                         </a>
                     </div>
@@ -142,29 +151,32 @@
             </div>
         </div>
 
-        <!-- VIDEO 4: ESTIRAMIENTO -->
+        <!-- VIDEO 4: PARKINSON -->
         <div class="group animate__animated animate__fadeInUp animate-on-scroll" style="animation-delay: 0.4s">
-            <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-gradient-to-br from-orange-50 to-white border-2 border-orange-200">
-                <div class="relative h-48 md:h-56 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center group-hover:scale-110 transition duration-300">
-                    <i class="fas fa-play text-white text-5xl opacity-80 group-hover:opacity-100 transition"></i>
+            <div class="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 duration-300 cursor-pointer bg-white border-2 border-orange-200">
+                <div class="relative h-48 md:h-56 bg-gray-200 flex items-center justify-center overflow-hidden group-hover:scale-110 transition duration-300">
+                    <img src="miniaturas/parkinson.png" alt="Terapia Parkinson" class="w-full h-full object-cover"/>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-30 transition">
+                        <i class="fas fa-play text-white text-5xl opacity-90 group-hover:opacity-100 transition"></i>
+                    </div>
                 </div>
                 <div class="p-5 md:p-6">
                     <div class="flex items-center gap-2 mb-3">
                         <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
                             <i class="fas fa-person-hiking text-orange-600 text-lg"></i>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-gray-900">Parkinsón</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900">Parkinson</h3>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">Terapia especializada - Sintomatología Parkinson</p>
+                    <p class="text-sm text-gray-600 mb-3">Terapia especializada - Protocolo Parkinson profesional</p>
                     <div class="flex items-center justify-between mb-4 pb-4 border-b border-orange-100">
                         <span class="text-xs text-gray-500"><i class="fas fa-clock mr-1"></i>15 segundos</span>
-                        <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded">Avanzado</span>
+                        <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full font-semibold">Avanzado</span>
                     </div>
                     <div class="flex gap-2">
-                        <button onclick="openVideoModal('vid/park.mp4', 'Parkinsón - Terapia Especializada')" class="flex-1 px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300">
+                        <button onclick="openVideoModal('vid/parkinson.mp4', 'Parkinson - Terapia Especializada')" class="flex-1 px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-sm">
                             <i class="fas fa-play mr-2"></i>Ver
                         </button>
-                        <a href="vid/park.mp4" download class="flex-1 px-4 py-2 bg-gray-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-center">
+                        <a href="vid/parkinson.mp4" download class="flex-1 px-4 py-2 bg-gray-600 text-white font-bold rounded-lg hover:shadow-lg hover:scale-105 transition duration-300 text-center text-sm">
                             <i class="fas fa-download mr-2"></i>Descargar
                         </a>
                     </div>
